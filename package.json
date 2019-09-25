@@ -6,11 +6,9 @@
   "license": "GPL-2.0 AND MIT",
   "private": true,
   "scripts": {
-    "engage": "npm run gulp:watch",
     "gulp": "gulp",
-    "gulp:watch": "gulp watch",
-    "live-long-and-prosper": "npm run gulp",
-    "beam-me-up-scotty": "gulp browsersync"
+    "engage": "gulp watch",
+    "take-us-out": "gulp browsersync"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
