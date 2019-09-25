@@ -6,13 +6,18 @@ const   sass        = require('gulp-sass');
 const   imagemin    = require('gulp-imagemin');
 const   browserSync = require('browser-sync').create();
 
-// Set local URL if using Browser-Sync
-const   LOCAL_URL   = 'http://wp-trek.localhost/';
-const   STYLE_DIR   = './assets/styles/';
-const   SCRIPT_DIR   = './assets/scripts/';
-const   IMAGES_DIR   = './assets/images/';
+// Assets source paths
+const   SOURCE  ={
+    scripts: './assets/scripts/',
+    styles: './assets/styles/',
+    images: '/assets/images/',
+    php: '**/*.php'
+}
 
-// SASS Options
+// Set local URL if using Browser-Sync
+const LOCAL_URL = 'http://wptrek.localhost/';
+
+// SASS options
 const   SASS_config =   {
     options: {
         outputStyle: 'nested',
@@ -22,25 +27,25 @@ const   SASS_config =   {
     }
 }
 
-// Styles Task
+// Styles task
 gulp.task('styles', function(){
-    return gulp.src(STYLE_DIR + 'scss/*.scss')
+    return gulp.src(SOURCE.styles + 'scss/*.scss')
     .pipe(concat('global.scss'))
     .pipe(sass(SASS_config.options).on('error', sass.logError))
-    .pipe(gulp.dest(STYLE_DIR));
+    .pipe(gulp.dest(SOURCE.styles));
 });
 
-// Scripts Task
+// Scripts task
 gulp.task('scripts', function(){
-    return gulp.src(SCRIPT_DIR + 'js/*.js')
+    return gulp.src(SOURCE.scripts + 'js/*.js')
     .pipe(concat('global.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(SCRIPT_DIR));
+    .pipe(gulp.dest(SOURCE.scripts));
 });
 
-// Image Minification Task
-gulp.task('imagemin', function(){
-    return gulp.src(IMAGES_DIR + '*')
+// Image minification task
+gulp.task('images', function(){
+    return gulp.src(SOURCE.images + 'src/*')
     .pipe(imagemin(
         // JPEG optimization @https://github.com/imagemin/imagemin-jpegtran
         imagemin.jpegtran({progressive: true}),
@@ -57,8 +62,33 @@ gulp.task('imagemin', function(){
             ]
         })
     ))
-    .pipe(gulp.dest('IMAGES_DIR'));
+    .pipe(gulp.dest(SOURCE.images));
+});
+
+
+
+// Browser-Sync watch files and inject changes
+gulp.task('browsersync', function() {
+    // Q will watch these files and tell BrowserSync what to do
+    var files = [
+    	SOURCE.php,
+    ];
+    browserSync.init(files, {
+	    proxy: LOCAL_URL,
+    });
+    gulp.watch(SOURCE.styles, gulp.parallel('styles')).on('change', browserSync.reload);
+    gulp.watch(SOURCE.scripts, gulp.parallel('scripts')).on('change', browserSync.reload);
+    // Remove comment if you want BrowserSync to reload on image chages.
+    // gulp.watch(SOURCE.images, gulp.parallel('images')).on('change', browserSync.reload);
+
+});
+
+// Watch files for changes (without Browser-Sync)
+gulp.task('watch', function() {
+	gulp.watch(SOURCE.styles + 'scss/*.scss', gulp.parallel('styles'));
+	gulp.watch(SOURCE.scripts + 'js/*.js', gulp.parallel('scripts'));
+	gulp.watch(SOURCE.images, gulp.parallel('images'));
 });
 
 // Default Task
-gulp.task('default', gulp.parallel('styles', 'scripts', 'imagemin'));
+gulp.task('default', gulp.parallel('styles', 'scripts', 'images'));

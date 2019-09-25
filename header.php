@@ -31,7 +31,7 @@
 	    <?php } ?>
 
         <!-- WP Pingbacks -->
-		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?
+		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 		<?php wp_head(); ?>
 
