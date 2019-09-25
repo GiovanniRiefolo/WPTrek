@@ -1,0 +1,9 @@
+.test{
+    display: block;
+    &-1{
+        color: red;
+    }
+    &-2{
+        color: blue;
+    }
+}
