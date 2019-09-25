@@ -28,4 +28,3 @@ to start watching file changes or
 $ npm take-us-out
 ````
 to for browser refresh with BrowserSync. 
-
