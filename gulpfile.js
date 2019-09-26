@@ -30,7 +30,7 @@ const   SASS_config =   {
 // Styles task
 gulp.task('styles', function(){
     return gulp.src(SOURCE.styles + 'scss/*.scss')
-    .pipe(concat('global.scss'))
+    .pipe(concat('main.scss'))
     .pipe(sass(SASS_config.options).on('error', sass.logError))
     .pipe(gulp.dest(SOURCE.styles));
 });
@@ -38,7 +38,7 @@ gulp.task('styles', function(){
 // Scripts task
 gulp.task('scripts', function(){
     return gulp.src(SOURCE.scripts + 'js/*.js')
-    .pipe(concat('global.js'))
+    .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(gulp.dest(SOURCE.scripts));
 });

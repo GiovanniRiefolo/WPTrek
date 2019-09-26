@@ -27,4 +27,4 @@ to start watching file changes or
 ````bash
 $ npm take-us-out
 ````
-to for browser refresh with BrowserSync. 
+to for browser refresh with Browser-Sync. 

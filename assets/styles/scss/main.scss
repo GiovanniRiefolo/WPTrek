@@ -1,12 +1,8 @@
-.test{
-    display: block;
-    &-1{
-        color: red;
-    }
-    &-2{
-        color: blue;
-    }
-    &-3{
-        color: purple;
-    }
-}
+// Import needed presets
+@import "presets/sg.colors";
+@import "presets/sg.sizes";
+@import "presets/sg.typo";
+@import "presets/sg.base";
+@import "presets/sg.browsers";
+
+// Theme Styles
