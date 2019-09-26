@@ -2,6 +2,13 @@
 // @https://netcraft.studio
 // Licensed under GNU GPL v3.0
 
-// Set the container width
-$container-width: rem-calc(1200);
+// Flex Classes
+.flex{
+  display: flex;
+
+  & .cell {
+    width: var(--width);
+  }
+}
+
 

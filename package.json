@@ -2,8 +2,8 @@
   "name": "wp-trek",
   "version": "1.0.0",
   "author": "Giovanni Riefolo <giovanni@netcraft.studio> (https://netcraft.studio)",
-  "description": "A WordPress starter theme featuring Foundation 6",
-  "license": "GPL-2.0 AND MIT",
+  "description": "A WordPress starter theme featuring StarGRID",
+  "license": "GNU GPL v3.0",
   "private": true,
   "scripts": {
     "gulp": "gulp",
@@ -16,9 +16,6 @@
     "gulp-uglify": "^3.0.2",
     "gulp-imagemin": "^3.1.1",
     "gulp-sass": "^4.0.2",
-    "foundation-sites": "^6.5.3",
-    "motion-ui": "^1.2.2",
-    "browser-sync": "^2.11.0",
-    "what-input": "^5.1.3"
+    "browser-sync": "^2.11.0"
   }
 }
