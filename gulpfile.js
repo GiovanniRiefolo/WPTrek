@@ -25,7 +25,7 @@ const   SASS_config =   {
         // No brackets will be harmed by phasers.
         indentedSyntax: false,
     }
-}
+};
 
 // Styles task
 gulp.task('styles', function(){
