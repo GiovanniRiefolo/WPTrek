@@ -76,8 +76,8 @@ gulp.task('browsersync', function() {
     browserSync.init(files, {
 	    proxy: LOCAL_URL,
     });
-    gulp.watch(SOURCE.styles, gulp.parallel('styles')).on('change', browserSync.reload);
-    gulp.watch(SOURCE.scripts, gulp.parallel('scripts')).on('change', browserSync.reload);
+    gulp.watch(SOURCE.styles + 'scss/*.scss', gulp.parallel('styles')).on('change', browserSync.reload);
+    gulp.watch(SOURCE.scripts + 'js/*.js', gulp.parallel('scripts')).on('change', browserSync.reload);
     // Remove comment if you want BrowserSync to reload on image chages.
     // gulp.watch(SOURCE.images, gulp.parallel('images')).on('change', browserSync.reload);
 
