@@ -7,12 +7,12 @@ const   imagemin    = require('gulp-imagemin');
 const   browserSync = require('browser-sync').create();
 
 // Assets source paths
-const   SOURCE  ={
+const   SOURCE = {
     scripts: './assets/scripts/',
     styles: './assets/styles/',
     images: '/assets/images/',
     php: '**/*.php'
-}
+};
 
 // Set local URL if using Browser-Sync
 const LOCAL_URL = 'http://wptrek.localhost/';
@@ -70,8 +70,10 @@ gulp.task('images', function(){
 // Browser-Sync watch files and inject changes
 gulp.task('browsersync', function() {
     // Q will watch these files and tell BrowserSync what to do
-    var files = [
-    	SOURCE.php,
+    const files = [
+        SOURCE.php,
+        SOURCE.styles,
+        SOURCE.scripts,
     ];
     browserSync.init(files, {
 	    proxy: LOCAL_URL,
