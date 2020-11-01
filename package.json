@@ -1,7 +1,7 @@
 {
   "name": "wp-trek",
   "version": "1.0.0",
-  "author": "Giovanni Riefolo <giovanni@netcraft.studio> (https://netcraft.studio)",
+  "author": "Giovanni Riefolo <giovanni@riefolo.dev> (https://riefolo.dev)",
   "description": "A WordPress starter theme featuring StarGRID",
   "license": "GNU GPL v3.0",
   "private": true,

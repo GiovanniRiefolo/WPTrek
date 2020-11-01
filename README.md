@@ -1,3 +1,9 @@
+## Introduction
+WP Trek is an unconventional theme for unconvetional project. What does it mean? Usually a theme gives you a lot of preset customization option, binding creativity to theme's limit. When you need extreme flexibility in developing WP themes, here it comes WP Trek.
+
+### The customizer
+Customizer will allow you to set 
+
 ## WP Trek Requirements
 WP Trek requires [Node.js](https://nodejs.org) v 6.9.x or newer. You don't need to understand Node or Gulp, just be sure that a the development tools are installed.
 

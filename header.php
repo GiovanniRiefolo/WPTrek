@@ -21,7 +21,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Favicon fallback -->
-		<!-- Check out Favicon.io 'https://favicon.io' -->
+		<!-- .check out Favicon.io 'https://favicon.io' -->
 		<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
 			<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
 			<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>//apple-touch-icon.png">
@@ -35,6 +35,10 @@
 
 		<?php wp_head(); ?>
 
+		<?php wptrek_gtag(); ?>
+		<?php wptrek_fbpx(); ?>
+
 	</head>
 
 <body <?php body_class(); ?>>
+

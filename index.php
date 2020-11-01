@@ -2,9 +2,8 @@
 /**
   * The main template file
   */
-get_header();
-?>
+get_header(); ?>
 
-
+<?php the_content(); ?>
 
 <?php get_footer(); ?>
