@@ -7,15 +7,24 @@
   "private": true,
   "scripts": {
     "gulp": "gulp",
-    "engage": "gulp watch",
+    "engage": "gulp default",
     "take-us-out": "gulp browsersync"
   },
-  "devDependencies": {
+  "dependencies": {
+    "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.2",
-    "gulp-imagemin": "^3.1.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-sass": "^4.0.2",
-    "browser-sync": "^2.11.0"
+    "node-sass": "^4.13.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-uglify": "^3.0.2",
+    "precss": "^4.0.0",
+    "gulp-webp": "^4.0.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "webfontloader": "^1.6.28"
   }
 }

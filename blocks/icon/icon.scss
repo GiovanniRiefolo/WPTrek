@@ -1,0 +1,13 @@
+@import "../../../assets/styles/scss/inc/theme.variables";
+
+.vc-icon {
+  & svg {
+    display: block;
+    width: auto;
+  }
+  &.aligncenter{
+    & svg{
+      margin: auto;
+    }
+  }
+}

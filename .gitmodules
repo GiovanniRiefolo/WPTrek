@@ -1,6 +1,3 @@
-[submodule "assets/styles/StarGRID"]
-	path = assets/styles/StarGRID
-	url = git@github.com:GiovanniRiefolo/StarGRID.git
-[submodule "assets/styles/StarGRID-dist"]
-	path = assets/styles/StarGRID-dist
+[submodule "assets/styles/scss"]
+	path = assets/styles/scss
 	url = git@github.com:GiovanniRiefolo/StarGRID-dist.git

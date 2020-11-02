@@ -1,5 +1,3 @@
 <?php
-/**
-  * The template for displaying comments
-  */
+//  The template for displaying comments
 ?>
