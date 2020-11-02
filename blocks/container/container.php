@@ -24,7 +24,7 @@ if( !empty($block['align']) ) {
  ?>
 
 
-<div id="<?php echo esc_attr($id); ?>" class="vc-container-block <?php echo esc_attr($classes); ?>"
+<div id="<?php echo esc_attr($id); ?>" class="vc-container-block section <?php echo esc_attr($classes); ?>"
      <?php if( get_field('bg_color') && get_field('global_bg')): ?>
      data-bg="<?php echo get_field('bg_color'); ?>"
      <?php endif; ?> >

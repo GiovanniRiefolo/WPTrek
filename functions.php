@@ -95,7 +95,6 @@ function wptrek_widgets_init() {
 }
 add_action( 'widgets_init', 'wptrek_widgets_init' );
 
-
 //  Required files
 //  --  assets
 require_once get_template_directory() . '/includes/assets.php';

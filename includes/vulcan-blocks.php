@@ -29,10 +29,13 @@ function register_acf_block_types() {
         'mode'				=> 'preview',
         'enqueue_assets'    => function(){
                                 wp_enqueue_style('container-style', get_theme_file_uri('blocks/container/container.css'));
+                                if ( true === get_theme_mod( 'fullpage_settings', true )) {
+                                    wp_enqueue_script( 'container-scripts', get_theme_file_uri('blocks/container/container.js'));
+                                }
                                },
         'supports'			=> array(
                                     'align' => true,
-                                    'mode' => false,
+                                    'mode' => true,
                                     'jsx' => true,
                                     'anchor' => true,
                                 )

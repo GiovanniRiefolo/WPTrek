@@ -58,5 +58,5 @@
 
 	</head>
 
-<body <?php body_class(); ?>>
+<body <?php if ( true === get_theme_mod( 'fullpage_settings', true )) : ?>id="fullpage"<?php endif; ?> <?php body_class(); ?> >
 
