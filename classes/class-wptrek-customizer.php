@@ -1,8 +1,10 @@
 <?php 
+//  Customizer options
+//  Want to know more? Check @https://developer.wordpress.org/themes/customize-api/customizer-objects/
 
 function wptrek_customize_register( $wp_customize ) {
 
-    // Marketing Stuffs ---------------------------- //
+    //  Marketing Stuffs ---------------------------- //
     $wp_customize->add_panel(
         'wptrek_marketing',
         array(
@@ -19,6 +21,7 @@ function wptrek_customize_register( $wp_customize ) {
         )
         
     );
+    //  Google Tag Manager
     $wp_customize->add_setting(
         'google_tag_snippet',
         array(
@@ -38,6 +41,7 @@ function wptrek_customize_register( $wp_customize ) {
             'settings'      => 'google_tag_snippet'
         )
     );
+    //  Facebook Pixel
     $wp_customize->add_setting(
         'fb_pixel_snippet',
         array(
@@ -58,29 +62,33 @@ function wptrek_customize_register( $wp_customize ) {
         )
     );
 
-
-    // Global Animations ---------------------------- //
+    //  Dev Tools ---------------------------- //
     $wp_customize->add_panel(
-        'wptrek_libraries',
+        'wptrek_tools',
         array(
-            'title'         => __( 'Animations', 'wptrek' ),
+            'title'         => __( 'Dev Tools', 'wptrek' ),
             'priority'      => 205
         )
     );
+    // Libraries
     $wp_customize->add_section(
         'libraries',
         array(
-            'title'         => 'Libraries',
+            'title'         => 'JS Libraries',
             'description'   => __('Activate / deactivate js animation libraries.', 'wptrek'),
-            'panel'         => 'wptrek_libraries',
+            'priority'      => 10,
+            'panel'         => 'wptrek_tools'
         ) 
     );
+    //  FullPage JS
+    //  Check docs and licence terms @https://alvarotrigo.com/fullPage/
     $wp_customize->add_setting(
         'fullpage_settings',
         array(
             'type'          => 'theme_mod',
             'capability'    => 'edit_theme_options',
             'transport'     => 'refresh',
+            'priority'      => 10
         )
     );
     $wp_customize->add_control(
@@ -94,11 +102,61 @@ function wptrek_customize_register( $wp_customize ) {
             'settings'      => 'fullpage_settings'
         )
     );
-
+    // Critical resources
+    $wp_customize->add_section(
+        'critical',
+        array(
+            'title'         => 'Critical Rendering Paths',
+            'description'   => __('Select the critical assets paths.', 'wptrek'),
+            'priority'      => 11,
+            'panel'         => 'wptrek_tools'
+        ) 
+    );
+    // Critical CSS
+    $wp_customize->add_setting(
+        'critical_css_settings',
+        array(
+            'type'          => 'theme_mod',
+            'capability'    => 'edit_theme_options',
+            'transport'     => 'refresh',
+            'priority'      => 11
+        )
+    );
+    $wp_customize->add_control(
+        'critical_css',
+        array(
+            'type'          => 'text',
+            'section'       => 'critical',
+            'priority'      => 11,
+            'label'         => __( 'Critical CSS file', 'wptrek' ),
+            'description'   => __( 'Add the critical CSS file name. Must be placed in assets/styles directory.', 'wptrek' ),
+            'settings'      => 'critical_css_settings'
+        )
+    );
+    $wp_customize->add_setting(
+        'critical_css_usage',
+        array(
+            'type'          => 'theme_mod',
+            'capability'    => 'edit_theme_options',
+            'transport'     => 'refresh',
+            'priority'      => 12
+        )
+    );
+    $wp_customize->add_control(
+        'critical_css_option',
+        array(
+            'type'          => 'checkbox',
+            'section'       => 'critical',
+            'priority'      => 11,
+            'label'         => __( 'Critical CSS file', 'wptrek' ),
+            'description'   => __( 'Add the critical CSS file name. Must be placed in assets/styles directory.', 'wptrek' ),
+            'settings'      => 'critical_css_usage'
+        )
+    );
 }
 add_action( 'customize_register', 'wptrek_customize_register' );
 
-  // You don't really need it
+//    You don't really need it
 function wptrek_remove_css_section( $wp_customize ) {	
 	$wp_customize->remove_section( 'custom_css' );
 }

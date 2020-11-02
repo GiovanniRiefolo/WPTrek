@@ -1,0 +1,93 @@
+// Import basic variables
+@import "../presets/sg.base";
+
+.flex{
+  &.flow-column{
+    flex-flow: column;
+    &-reverse{
+      flex-flow: column-reverse;
+    }
+  }
+  &.flow-row{
+    flex-flow: row;
+    &-reverse{
+      flex-flow: row-reverse;
+    }
+  }
+}
+
+// block alignment utiites
+.block {
+  &.a {
+    &-flex-start {
+      align-items: flex-start;
+    }
+
+    &-flex-end {
+      align-items: flex-end;
+    }
+
+    &-middle {
+      align-items: center;
+    }
+
+    &-center{
+      justify-content: center;
+    }
+    &-space-between{
+      justify-content: space-between;
+    }
+  }
+}
+
+// Item spaces utilities
+.item {
+  // padding
+  &.padding {
+    // left & right
+    &-lr {
+      padding: 0 $item-padding;
+    }
+
+    // top & bottom
+    &-tb {
+      padding: $item-padding 0;
+    }
+
+    // all around
+    &-around {
+      padding: $item-padding;
+
+    }
+  }
+
+  // margin
+  &.margin {
+    // left & right
+    &-lr {
+      margin: 0 $item-margin;
+    }
+
+    // top & bottom
+    &-tb {
+      margin: $item-margin 0;
+    }
+
+    // all around
+    &-around {
+      margin: $item-margin;
+    }
+  }
+
+}
+
+// calculate percentage item width
+@for $i from 1 through $grid-columns {
+  $item-size: $block-width / $grid-columns;
+  $item-width: percentage(($item-size / $block-width) * $i);
+  .item {
+    &.offset-#{$i} {
+      margin-left: $item-width;
+    }
+  }
+}

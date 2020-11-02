@@ -1,34 +1,13 @@
 <?php
-/**
-  * This template display all posts and attachments
-  */
+//  This template displays all posts and attachments
+//  @https://developer.wordpress.org/themes/basics/template-hierarchy
 
- get_header(); ?>
+// @package WordPress
+// @subpackage WP_Trek
+// @since WP Trek 1.0
 
- <section class="content">
+get_header(); ?>
 
-    <div class="grid-container">
 
-        <div class="grid-x">
 
-            <main class="content-main small-12 medium-8 large-8 cell" role="main">
-
-                <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-                    <?php get_template_part( 'parts/loop', 'single' ); ?>
-
-                <?php endwhile; else : ?>
-
-                    <?php get_template_part( 'parts/content', 'missing' ); ?>
-
-                <?php endif; ?>
-
-            </main> <!-- end main.content-main -->
-
-        </div> <!-- end div.grid-container -->
-
-    </div> <!-- end section.content -->
-
- </section>
-
- <?php get_footer(); ?>
+<?php get_footer(); ?>

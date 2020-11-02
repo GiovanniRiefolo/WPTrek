@@ -1,0 +1,21 @@
+// StarGRID by Giovanni Riefolo
+// @https://stargrid.dev
+// version 0.1.0
+// Licensed under GNU GPL v3.0
+
+// This is the global file with main styles
+// which are used in all your templates
+
+// 1. Import utilites
+@import "util/sg.colors";
+
+// 2. Import global settings
+@import "sg.settings";
+
+// 3. Globally import a grid
+// @import "sg.grid";
+// @import "sg.flex";
+
+// 4. Globally import grid utilities
+// @import "util/sg.flex.util.scss";
+// @import "util/sg.grid.util.scss";

@@ -7,17 +7,22 @@
 
  Theme Name: WP Trek
  Theme URI: https://www.themetrek.com
- GitHub Theme URI: afragen/test-child
- GitHub Theme URI: https://github.com/afragen/test-child
- Description: A WordPress starter theme featuring Foundation 6
+ GitHub Theme URI: GiovanniRiefolo/WPTrek
+ GitHub Theme URI: https://github.com/GiovanniRiefolo/WPTrek
+ Description: A WordPress starter theme featuring StarGrid CSS Framework and Vulcan Blocks for Gutenberg.
  Author: Giovanni Riefolo
- Author URI: https://netcraft.studio
- Version: 0.0.1
+ Author URI: https://riefolo.dev
+ Version: 1.0.0
  License: GNU General Public License & MIT
  License URI: http://www.gnu.org/licenses/gpl-3.0.html
- Tags: Sass
+ Tags: sass, custom-logo, theme-options, block-styles,
 
 
    ******      ******      ******      ******
  **********  **********  **********  **********
 ***********************************************/
+
+/**
+  * NOTE: No styles are stored in this file. All styles are generated and enqueued for specific templates in functions.php
+  * except for global styles {{assets/styles/scss/theme.scss}} and critical styles {{{{assets/styles/scss/theme.critical.scss}}}}
+  */

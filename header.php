@@ -1,7 +1,10 @@
 <?php
-/**
-  * This template display the <head> section
-  */
+//	This is the template that displays the <head> section
+//	@https://developer.wordpress.org/themes/basics/template-files/#template-files
+
+// @package WordPress
+// @subpackage WP_Trek
+// @since WP Trek 1.0
 ?>
 
 <!doctype html>
@@ -37,6 +40,21 @@
 
 		<?php wptrek_gtag(); ?>
 		<?php wptrek_fbpx(); ?>
+		
+		
+		<?php
+		$critical_css_usage = get_theme_mod( 'critical_css_usage', true );
+		$critical_css_filename = get_theme_mod("critical_css_settings");
+		
+		if ( $critical_css_usage == true ) : ?>
+			<style>
+				<?php $critical_css_file = file_get_contents(get_template_directory_uri() . '/assets/styles/' . $critical_css_filename); ?>
+				<?php echo $critical_css_file; ?>
+			</style>
+		<?php endif; ?>
+		
+		
+		
 
 	</head>
 

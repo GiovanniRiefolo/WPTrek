@@ -1,0 +1,85 @@
+// Import basic variables
+@import "presets/sg.base";
+
+// Flex sizes
+@mixin flex-block( $width: $block-width) {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  width: 100%;
+  max-width: $width;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+// Flex Classes
+.flex {
+  display: flex;
+}
+
+// block
+.block {
+  @include flex-block();
+  // full page width
+  &.full-width {
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
+// Items
+.item {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: inline-flex;
+  flex: 0 1 auto;
+  // automatic size
+  &.l-auto {
+    width: auto;
+    flex: 1 1 0px;
+  }
+
+  &.l-shrink {
+    width: auto;
+    flex: 0 0 auto;
+  }
+
+}
+
+// calculate percentage item width
+@for $i from 1 through $grid-columns {
+  $item-size: $block-width / $grid-columns;
+  $item-width: percentage(($item-size / $block-width) * $i);
+  .item {
+    &.l-#{$i} {
+      width: $item-width;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-viewport){
+  @for $i from 1 through $grid-columns {
+    $item-size: $block-width / $grid-columns;
+    $item-width: percentage(($item-size / $block-width) * $i);
+    .item {
+      &.m-#{$i} {
+        width: $item-width;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $smartphone-viewport){
+  @for $i from 1 through $grid-columns {
+    $item-size: $block-width / $grid-columns;
+    $item-width: percentage(($item-size / $block-width) * $i);
+    .item {
+      &.s-#{$i} {
+        width: $item-width;
+      }
+    }
+  }
+}
