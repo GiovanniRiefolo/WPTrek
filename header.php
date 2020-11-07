@@ -60,3 +60,29 @@
 
 <body <?php if ( true === get_theme_mod( 'fullpage_settings', true )) : ?>id="fullpage"<?php endif; ?> <?php body_class(); ?> >
 
+	<body <?php body_class(); ?> >
+
+<!-- Here a tipical website main header.
+     It gets either custom logo or blog info
+     based on what you set in the WP options -->
+<header>
+    <div class="flex">
+        <div class="block">
+            <div class="item l-auto">
+                <!-- the custom wp logo -->
+                <?php if(get_custom_logo() == true) : ?>
+                    <?php the_custom_logo(); ?>
+                <?php else : ?>
+                    <hgroup>
+                        <h1><?php bloginfo('name'); ?></h1>
+                        <h2><?php bloginfo('description'); ?></h2>
+                    </hgroup>
+                <?php endif; ?>
+            </div>
+            <div class="item l-auto">
+                <!-- insert here your menu -->
+            </div>
+        </div>
+    </div>
+</header>
+
