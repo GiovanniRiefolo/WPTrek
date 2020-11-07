@@ -153,6 +153,37 @@ function wptrek_customize_register( $wp_customize ) {
             'settings'      => 'critical_css_usage'
         )
     );
+    // FontAwesome
+    $wp_customize->add_section(
+        'fontawesome',
+        array(
+            'title'         => 'Font Awesome',
+            'description'   => __('Load globally your FontAwesome PRO Kit', 'wptrek'),
+            'priority'      => 12,
+            'panel'         => 'wptrek_tools'
+        ) 
+    );
+    $wp_customize->add_setting(
+        'get_fontawesome',
+        array(
+            'type'          => 'option',
+            'capability'    => 'edit_theme_options',
+            'transport'     => 'refresh',
+            'priority'      => 12
+        )
+    );
+    $wp_customize->add_control(
+        'fontawesome_kit',
+        array(
+            'type'          => 'text',
+            'section'       => 'fontawesome',
+            'priority'      => 12,
+            'label'         => __( 'Kit code', 'wptrek' ),
+            'description'   => __( 'Add your kit code / name. You can manage your kits <a href="https://fontawesome.com/kits/" target="_blank">here</a>.', 'wptrek' ),
+            'settings'      => 'get_fontawesome'
+        )
+    );
+
 }
 add_action( 'customize_register', 'wptrek_customize_register' );
 

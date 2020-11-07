@@ -18,3 +18,9 @@ if ( ! function_exists( 'wptrek_fbpx' ) ) :
 		echo get_option('fb_pixel_snippet');
     }
 endif;
+
+if ( ! function_exists( 'wptrek_fapro') ) :
+	function wptrek_fapro(){
+		echo get_option('get_fontawesome');
+	}   
+endif;

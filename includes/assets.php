@@ -27,12 +27,18 @@ function wptrek_assets(){
         wp_enqueue_script('fullpage-script-ext', get_theme_file_uri('assets/scripts/libraries/fullpage.extensions.min.js'), array('fullpage-script'));
         wp_enqueue_style('fullpage-styles', get_theme_file_uri('assets/styles/scss/fullpage/fullpage.min.css'));
     }
+
+   
 }
 add_action( 'wp_enqueue_scripts', 'wptrek_assets' );
 
 //  Custom Admin
 function wptrek_admin(){
     wp_enqueue_style('admin-style', get_theme_file_uri('assets/styles/sg.admin.css'));
+    if  ( !empty( get_option('get_fontawesome') ) ){
+        wp_enqueue_script( 'fontawesome-kit',  'https://kit.fontawesome.com/' . get_option('get_fontawesome') . '.js');
+    }
+    
 }
 add_action( 'admin_enqueue_scripts', 'wptrek_admin');
 
