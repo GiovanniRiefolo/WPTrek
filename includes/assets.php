@@ -42,3 +42,9 @@ function wptrek_admin(){
 }
 add_action( 'admin_enqueue_scripts', 'wptrek_admin');
 
+// Custom Editor styles
+function wptrek_gutenberg_styles() {
+	// Load the theme styles within Gutenberg.
+	wp_enqueue_style( 'wptrek-gutenberg', get_theme_file_uri( '/assets/styles/sg.gutenberg.css' ), false );
+}
+add_action( 'enqueue_block_editor_assets', 'wptrek_gutenberg_styles' );
