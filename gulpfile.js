@@ -101,10 +101,10 @@ gulp.task('images', function () {
 gulp.task('browsersync', function () {
 //  ----  List of watched files
     const files = [
-        SOURCE.php,
         SOURCE.styles,
         SOURCE.blocks,
         SOURCE.scripts,
+        SOURCE.images
     ];
     browserSync.init(files, {
         proxy: LOCAL_URL,
@@ -113,7 +113,6 @@ gulp.task('browsersync', function () {
     gulp.watch(SOURCE.styles + 'scss/templates/*.scss', gulp.parallel('styles:temp')).on('change', browserSync.reload);
     gulp.watch(SOURCE.styles + 'scss/templates/parts/*.scss', gulp.parallel('styles:part')).on('change', browserSync.reload);
     gulp.watch(SOURCE.blocks + '**/*.scss', gulp.parallel('styles:block')).on('change', browserSync.reload);
-    gulp.watch(SOURCE.php).on('change', browserSync.reload);
     gulp.watch(SOURCE.scripts + 'vendors/*.js', gulp.series(
         gulp.parallel('scripts'),
     )).on('change', browserSync.reload);
