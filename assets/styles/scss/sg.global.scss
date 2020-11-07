@@ -14,8 +14,17 @@
 
 // 3. Globally import a grid
 // @import "sg.grid";
-// @import "sg.flex";
+ @import "sg.flex";
 
 // 4. Globally import grid utilities
 // @import "util/sg.flex.util.scss";
 // @import "util/sg.grid.util.scss";
+
+.fp-tableCell{
+ width: 100%;
+}
+
+img {
+    width: inherit;
+    height: auto;
+  }
