@@ -3,3 +3,34 @@
 .fp-tableCell{
     width: 100%;
    }
+
+//ACF button checkbox
+.radio-button{
+    & ul.acf-radio-list{
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      & li{
+        display: inline-flex;
+        margin: 4px;
+        & label{
+          border: 1px solid #424242;
+          width: 32px;
+          height: 32px;
+          display: block !important;
+          position: relative;
+          overflow: hidden;
+          padding: 8px;
+          & input[type="radio"]{
+            position: absolute;
+            left: -100%;
+          }
+          & i{
+            display: block;
+            text-align: center;
+          }
+        }
+  
+      }
+    }
+  }

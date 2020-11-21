@@ -24,6 +24,10 @@
  width: 100%;
 }
 
+body{
+    transition: background-color 1s ease-in-out;
+}
+
 img {
     width: inherit;
     height: auto;
