@@ -20,7 +20,12 @@
           display: block !important;
           position: relative;
           overflow: hidden;
-          padding: 8px;
+          padding: 9px 8px;
+          &.selected{
+            border-color: #007cba;
+            background-color: #0d99d5;
+            color: white;
+          }
           & input[type="radio"]{
             position: absolute;
             left: -100%;
