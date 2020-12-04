@@ -48,13 +48,9 @@
 		
 		if ( $critical_css_usage == true ) : ?>
 			<style>
-				<?php $critical_css_file = file_get_contents(get_template_directory_uri() . '/assets/styles/' . $critical_css_filename); ?>
-				<?php echo $critical_css_file; ?>
+				<?php echo file_get_contents(get_template_directory_uri() . '/assets/styles/' . $critical_css_filename); ?>
 			</style>
 		<?php endif; ?>
-		
-		
-		
 
 	</head>
 

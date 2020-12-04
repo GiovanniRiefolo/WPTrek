@@ -13,7 +13,6 @@ function my_acf_settings_url( $url ) {
 add_filter('acf/settings/url', 'my_acf_settings_url');
 
 // (Optional) Hide the ACF admin menu item.
-
 function my_acf_settings_show_admin( $show_admin ) {   
     if (WP_DEBUG == false){
         return false;
@@ -23,14 +22,14 @@ function my_acf_settings_show_admin( $show_admin ) {
 }
 add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
 
-
-
+// (Optional) Change ACF JSON file position
+// By setting different load point theme's custom fields will be indipendent from your integrations.
 function my_acf_json_load_point( $paths ) {
-    // remove original path (optional)
+    // ---- (Optional) Remove original path
     unset($paths[0]);
-    // append path
+    // ---- Append path
     $paths[] = get_template_directory() . '/includes/acf/acf-json/';
-    // return
+    // ---- Return
     return $paths;
 }
 add_filter('acf/settings/load_json', 'my_acf_json_load_point');
