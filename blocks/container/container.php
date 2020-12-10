@@ -21,10 +21,23 @@ if( !empty($block['className']) ) {
 if( !empty($block['align']) ) {
     $classes .= sprintf( ' align%s', $block['align'] );
 }
+
+// Create class attribute values for Vulcan Blocks
+$scheme = '';
+$block_width = '';
+if( get_field('color_scheme') == 'white' ) {
+    $scheme .= sprintf('light-scheme');
+} elseif (get_field('color_scheme') == 'black' ){
+    $scheme .= sprintf('dark-scheme');
+}
+if(get_field('content_width')){
+    $content_width = get_field('width');
+    $block_width .= 'max-width:' . $content_width . 'px';
+}
  ?>
 
 
-<div id="<?php echo esc_attr($id); ?>" class="vc-container-block section <?php echo esc_attr($classes); ?>"
+<div id="<?php echo esc_attr($id); ?>" class="vc-container-block <?php echo esc_attr($classes); ?> <?php echo esc_attr($scheme); ?>"
      <?php if( get_field('bg_color') && get_field('global_bg')): ?>
      data-bg="<?php echo get_field('bg_color'); ?>"
      <?php endif; ?> >
@@ -127,11 +140,9 @@ if( !empty($block['align']) ) {
         </figure>
     </div>
     <?php endif; ?>
-     <?php if(get_field('content_width')) : ?>
-     <div class="vc-content" style="max-width: <?php echo get_field('width'); ?>px;">
-     <?php else : ?>
-     <div class="vc-content">
-     <?php endif; ?>
+
+     <div class="vc-content" style="<?php echo esc_attr($block_width); ?>">
         <InnerBlocks />
     </div>
+
 </div>
