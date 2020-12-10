@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5f8b6dab7fafd",
-            "label": "<i style=\"font-size:24px;\" class=\"far fa-palette\"><\/i>",
+            "label": "<i style=\"font-size:24px;\" class=\"fal fa-palette\"><\/i>",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -79,7 +79,7 @@
         },
         {
             "key": "field_5f8cc7dbf9d4f",
-            "label": "<i style=\"font-size:24px\" class=\"far fa-sparkles\"><\/i>",
+            "label": "<i style=\"font-size:24px\" class=\"fal fa-sparkles\"><\/i>",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -147,7 +147,7 @@
         },
         {
             "key": "field_5f75da8580041",
-            "label": "<i style=\"font-size:24px\" class=\"far fa-sliders-h\"><\/i>",
+            "label": "<i style=\"font-size:24px\" class=\"fal fa-sliders-h\"><\/i>",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -188,7 +188,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "half_field",
                 "id": ""
             },
             "choices": {
@@ -215,7 +215,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "radio-button",
+                "class": "radio-button half_field",
                 "id": ""
             },
             "choices": {
@@ -310,6 +310,22 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_5fcd63b242d08",
+                    "label": "<i class=\"far fa-desktop-alt\"><\/i>",
+                    "name": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "top",
+                    "endpoint": 0
+                },
+                {
                     "key": "field_5f75dae080043",
                     "label": "Superiore",
                     "name": "margin_sup",
@@ -319,7 +335,7 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "",
+                        "class": "half_field",
                         "id": ""
                     },
                     "default_value": 0,
@@ -340,7 +356,7 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "",
+                        "class": "half_field",
                         "id": ""
                     },
                     "default_value": 0,
@@ -361,7 +377,7 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "",
+                        "class": "half_field",
                         "id": ""
                     },
                     "default_value": 0,
@@ -382,7 +398,107 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
+                        "class": "half_field",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "<i class=\"far fa-border-right\"><\/i>",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5fcd63c442d09",
+                    "label": "<i class=\"far fa-mobile-android\"><\/i>",
+                    "name": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
                         "class": "",
+                        "id": ""
+                    },
+                    "placement": "top",
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5fcd63f642d0a",
+                    "label": "Superiore",
+                    "name": "margin_sup_s",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "half_field",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "<i class=\"far fa-border-top\"><\/i>",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5fcd641442d0b",
+                    "label": "Inferiore",
+                    "name": "margin_inf_s",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "half_field",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "<i class=\"far fa-border-bottom\"><\/i>",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5fcd642e42d0c",
+                    "label": "Sinistra",
+                    "name": "margin_sx_s",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "half_field",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "<i class=\"far fa-border-left\"><\/i>",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5fcd643e42d0d",
+                    "label": "Destro",
+                    "name": "margin_dx_s",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "half_field",
                         "id": ""
                     },
                     "default_value": 0,
@@ -428,6 +544,22 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_5fcd616339c1c",
+                    "label": "<i class=\"far fa-desktop-alt\"><\/i>",
+                    "name": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "top",
+                    "endpoint": 0
+                },
+                {
                     "key": "field_5f75db7380048",
                     "label": "Superiore",
                     "name": "padding_sup",
@@ -437,7 +569,7 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "",
+                        "class": "half_field",
                         "id": ""
                     },
                     "default_value": 64,
@@ -458,7 +590,7 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "",
+                        "class": "half_field",
                         "id": ""
                     },
                     "default_value": 64,
@@ -479,7 +611,7 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "",
+                        "class": "half_field",
                         "id": ""
                     },
                     "default_value": 0,
@@ -500,7 +632,107 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
+                        "class": "half_field",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "<i class=\"far fa-border-right\"><\/i>",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5fcd61bf39c1d",
+                    "label": "<i class=\"far fa-mobile-android\"><\/i>",
+                    "name": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
                         "class": "",
+                        "id": ""
+                    },
+                    "placement": "top",
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5fcd61f239c1e",
+                    "label": "Superiore",
+                    "name": "padding_sup_s",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "half_field",
+                        "id": ""
+                    },
+                    "default_value": 64,
+                    "placeholder": "",
+                    "prepend": "<i class=\"far fa-border-top\"><\/i>",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5fcd61f539c1f",
+                    "label": "Inferiore",
+                    "name": "padding_inf_s",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "half_field",
+                        "id": ""
+                    },
+                    "default_value": 64,
+                    "placeholder": "",
+                    "prepend": "<i class=\"far fa-border-bottom\"><\/i>",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5fcd61f839c20",
+                    "label": "Sinistra",
+                    "name": "padding_sx_s",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "half_field",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "<i class=\"far fa-border-left\"><\/i>",
+                    "append": "px",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5fcd61fb39c21",
+                    "label": "Destro",
+                    "name": "padding_dx_s",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "half_field",
                         "id": ""
                     },
                     "default_value": 0,
@@ -531,5 +763,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1603652142
+    "modified": 1607342676
 }
