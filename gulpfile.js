@@ -13,6 +13,12 @@ var postcss         = require('gulp-postcss');
 var sass            = require('gulp-sass');
 sass.compiler       = require('node-sass');
 var uglify          = require('gulp-uglify');
+var babel           = require('gulp-babel');
+var plumber         = require('gulp-plumber');
+var psi             = require('psi');
+
+// Development site URL
+var SITE = 'http://riefolo.dev'
 
 //  Assets source paths
 var SOURCE = {
@@ -23,7 +29,7 @@ var SOURCE = {
 };
 
 //  Set local URL if using Browser-Sync
-const LOCAL_URL = '127.0.0.0';
+const LOCAL_URL = SITE;
 
 //  SASS options
 var SASS_config = {

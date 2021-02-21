@@ -40,7 +40,12 @@ to for browser refresh with Browser-Sync.
 
 ## Features
 
+### Custom template tags
+WP Trek bundles a bunch of template tags to help you get specific data inside the theme. Here is the tag list:
+- `wptrek_fapro`, loads FontAwesome Kit
+
 ### The Customizer
 The Customizer will give you useful settings for your project. Stop changing colors or fonts (WPTrek suggests good Gutenberg addons) doing builders' job. Let's see what WPTrek offers:
-1. Marketing section - Here you can add your custom scripts (Google Tag Manager, Facebook Pixel).
+1. Marketing Tools - Here you can add your custom scripts like the Google Tag Manager and the Facebook Pixel.
 2. Dev Tools - Here you can activate pre-bundled libraries with ready-to-go implementation with Vulcan Blocks and load critical resources.
+

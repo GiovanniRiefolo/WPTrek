@@ -38,9 +38,9 @@
 
 		<?php wp_head(); ?>
 
-		<?php wptrek_gtag(); ?>
+		<?php wptrek_get_gtag(); ?>
 		
-		<?php wptrek_fbpx(); ?>
+		<?php wptrek_get_fbpx(); ?>
 		
 		<?php
 		$critical_css_usage = get_theme_mod( 'critical_css_usage', true );

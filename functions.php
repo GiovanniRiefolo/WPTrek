@@ -5,7 +5,7 @@
 //  Theme Compatibility
 //  WP Trek only works in WordPress 5.5 or later.
 if ( version_compare( $GLOBALS['wp_version'], '5.5', '<' ) ) {
- 	require get_template_directory() . '/includes/compatibility.php';
+ 	require get_template_directory() . '/includes/functions/compatibility.php';
  	return;
  }
 
@@ -96,20 +96,20 @@ function wptrek_widgets_init() {
 add_action( 'widgets_init', 'wptrek_widgets_init' );
 
 //  Required files
-//  --  assets
-require_once get_template_directory() . '/includes/assets.php';
+// --- assets
+require_once get_template_directory() . '/includes/functions/assets.php';
 
-//  --  custom template tags
-require_once get_template_directory() . '/includes/template-tags.php';
+// --- template tags
+require_once get_template_directory() . '/includes/functions/template-tags.php';
 
-//  --  custom fields
-require_once get_template_directory() . '/includes/custom-fields.php';
+// --- color palette
+require_once get_template_directory() . '/includes/functions/custom-fields.php';
 
-//  --  custom blocks
-require_once get_template_directory() . '/includes/vulcan-blocks.php';
+// --- custom fields
+require_once get_template_directory() . '/includes/functions/custom-fields.php';
 
-//  --  Customizer
-require_once get_template_directory() . '/classes/class-wptrek-customizer.php';
+// --- blocks
+require_once get_template_directory() . '/includes/blocks/vulcan-blocks.php';
 
-//  --  suggested plugins
-require_once get_template_directory() . '/classes/class-wptrek-plugins.php';
+// --- the customizer
+require_once get_template_directory() . '/classes/custominizer/wptrek-customizer.php';

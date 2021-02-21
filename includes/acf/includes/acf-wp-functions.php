@@ -133,6 +133,7 @@ function acf_decode_post_id( $post_id = 0 ) {
 			$id = substr($post_id, $i+1);
 		} else {
 			$type = $post_id;
+			$id = '';
 		}
 	
 	// Handle incorrect param type.
@@ -184,8 +185,10 @@ function acf_decode_post_id( $post_id = 0 ) {
 			$type = 'option';
 			$id = $post_id;
 			break;
+		case 'blog_%d':
 		case 'site_%d':
-			$type = 'site';
+			// Allow backwards compatibility for custom taxonomies.
+			$type = taxonomy_exists($type) ? 'term' : 'blog';
 			$id = absint( $id );
 			break;
 		default:
