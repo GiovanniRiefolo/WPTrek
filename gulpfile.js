@@ -84,7 +84,7 @@ gulp.task('styles:block', function () {
 });
 
 //  Scripts task
-gulp.task('scripts', function () {
+gulp.task('scripts:vendors', function () {
     return gulp.src(SOURCE.scripts + 'vendors/*.js')
         .pipe(concat('vendors.js'))
         .pipe(uglify())
@@ -109,8 +109,8 @@ gulp.task('images', function () {
         .pipe(gulp.dest(SOURCE.images));
 });
 
-//  Browser Sync Task
-// --- watching files changes and update browser view
+//  Watching Tasks
+// --- watching files with BrowserSync
 gulp.task('browsersync', function () {
     // --- list of watched files
     const files = [
@@ -127,13 +127,24 @@ gulp.task('browsersync', function () {
     gulp.watch(SOURCE.styles + 'scss/templates/partials/*.scss', gulp.parallel('styles:part')).on('change', browserSync.reload);
     gulp.watch(SOURCE.blocks + '**/*.scss', gulp.parallel('styles:block')).on('change', browserSync.reload);
     gulp.watch(SOURCE.scripts + 'vendors/*.js', gulp.series(
-        gulp.parallel('scripts'),
+        gulp.parallel('scripts:vendors'),
     )).on('change', browserSync.reload);
     gulp.watch(SOURCE.scripts + 'theme.js', gulp.series(
-        gulp.parallel('scripts'),
+        gulp.parallel('scripts:vendors'),
     )).on('change', browserSync.reload);
     // --- remove comment if you want BrowserSync to reload on image chages.
     // gulp.watch(SOURCE.images, gulp.parallel('images')).on('change', browserSync.reload);
+});
+// --- watching files without BrowserSync
+gulp.task('watch', function () {
+    // --- list of watched files
+    gulp.watch(SOURCE.styles + 'scss/*.scss', gulp.parallel('styles:global'));
+    gulp.watch(SOURCE.styles + 'scss/templates/*.scss', gulp.parallel('styles:temp'));
+    gulp.watch(SOURCE.styles + 'scss/templates/partials/*.scss', gulp.parallel('styles:part'));
+    gulp.watch(SOURCE.blocks + '**/*.scss', gulp.parallel('styles:block'));
+    gulp.watch(SOURCE.scripts + 'vendors/*.js', gulp.parallel('scripts:vendors'));
+    // --- remove comment if you want BrowserSync to reload on image chages.
+    // gulp.watch(SOURCE.images, gulp.parallel('images'));
 });
 
 // Build Task
@@ -150,7 +161,7 @@ gulp.task('default',
             'styles:temp',
             'styles:part',
             'styles:block',
-            'scripts',
+            'scripts:vendors'
         )
     )
 );

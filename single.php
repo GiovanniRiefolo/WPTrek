@@ -8,6 +8,6 @@
 
 get_header(); ?>
 
-
+<?php get_template_part('partials/post/post', 'content'); ?>
 
 <?php get_footer(); ?>

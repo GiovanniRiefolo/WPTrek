@@ -8,8 +8,6 @@
 
 get_header(); ?>
 
-<main <?php if ( true === get_theme_mod( 'fullpage_settings', true )) : ?>id="fullpage"<?php endif; ?> >
-    <?php the_content(); ?>
-</main>
+<?php get_template_part('partials/page/page', 'content'); ?>
 
 <?php get_footer(); ?>

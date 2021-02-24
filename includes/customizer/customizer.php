@@ -1,118 +1,27 @@
-<?php 
+<?php
 //  Customizer options
-//  Want to know more? Check @https://developer.wordpress.org/themes/customize-api/customizer-objects/
+//  @https://developer.wordpress.org/themes/customize-api/customizer-objects/
 
-function wptrek_customize_register( $wp_customize ) {
-
-    //  Marketing Stuffs ---------------------------- //
+function theme_customize_register($wp_customize)
+{
     $wp_customize->add_panel(
-        'wptrek_marketing',
+        'theme_opt',
         array(
-            'title'         => __( 'Marketing', 'wptrek' ),
-            'priority'      => 200
-        )
-    );
-    $wp_customize->add_section(
-        'wptrek_marketing_scripts',
-        array(
-            'title'         => 'Scripts',
-            'description'   => __('Add your scripts here.', 'wptrek'),
-            'panel'         => 'wptrek_marketing',
-        )
-        
-    );
-    //  Google Tag Manager
-    $wp_customize->add_setting(
-        'google_tag_snippet',
-        array(
-            'type'          => 'option',
-            'capability'    => 'edit_theme_options',
-            'transport'     => 'refresh',
-        )
-    );
-    $wp_customize->add_control(
-        'google_tag',
-        array(
-            'type'          => 'textarea',
-            'section'       => 'wptrek_marketing_scripts',
-            'priority'      => 10,
-            'label'         => __( 'Google Tag', 'wptrek' ),
-            'description'   => __( 'Add your Google Tag code here.', 'wptrek' ),
-            'settings'      => 'google_tag_snippet'
-        )
-    );
-    //  Facebook Pixel
-    $wp_customize->add_setting(
-        'fb_pixel_snippet',
-        array(
-            'type'          => 'option',
-            'capability'    => 'edit_theme_options',
-            'transport'     => 'refresh',
-        )
-    );
-    $wp_customize->add_control(
-        'fb_pixel',
-        array(
-            'type'          => 'textarea',
-            'section'       => 'wptrek_marketing_scripts',
-            'priority'      => 11,
-            'label'         => __( 'Facebook Pixel', 'wptrek' ),
-            'description'   => __( 'Add your Facebook Pixel code here.', 'wptrek' ),
-            'settings'      => 'fb_pixel_snippet'
-        )
-    );
-
-    //  Dev Tools ---------------------------- //
-    $wp_customize->add_panel(
-        'wptrek_tools',
-        array(
-            'title'         => __( 'Dev Tools', 'wptrek' ),
+            'title'         => __('Ottimizzazioni tema', 'wptrek'),
             'priority'      => 205
-        )
-    );
-    // Libraries
-    $wp_customize->add_section(
-        'libraries',
-        array(
-            'title'         => 'JS Libraries',
-            'description'   => __('Activate / deactivate js animation libraries.', 'wptrek'),
-            'priority'      => 10,
-            'panel'         => 'wptrek_tools'
-        ) 
-    );
-    //  FullPage JS
-    //  Check docs and licence terms @https://alvarotrigo.com/fullPage/
-    $wp_customize->add_setting(
-        'fullpage_settings',
-        array(
-            'type'          => 'theme_mod',
-            'capability'    => 'edit_theme_options',
-            'transport'     => 'refresh',
-            'priority'      => 10
-        )
-    );
-    $wp_customize->add_control(
-        'fullpage',
-        array(
-            'type'          => 'checkbox',
-            'section'       => 'libraries',
-            'priority'      => 10,
-            'label'         => __( 'FullPage', 'wptrek' ),
-            'description'   => __( 'Use fullpage to scroll entire content sections. More info at ', 'wptrek' ) . ('<a href="https://alvarotrigo.com/fullPage" target="_blank">FullPage JS official page</a>'),
-            'settings'      => 'fullpage_settings'
         )
     );
     // Critical resources
     $wp_customize->add_section(
         'critical',
         array(
-            'title'         => 'Critical Rendering Paths',
-            'description'   => __('Select the critical assets paths.', 'wptrek'),
+            'title'         => 'Percorso risorse critiche',
+            'description'   => __('Inserisci il nomi dei file delle risorse critiche.', 'wptrek'),
             'priority'      => 11,
-            'panel'         => 'wptrek_tools'
-        ) 
+            'panel'         => 'theme_opt'
+        )
     );
-    // Critical CSS
+    // --- critical CSS
     $wp_customize->add_setting(
         'critical_css_settings',
         array(
@@ -128,8 +37,8 @@ function wptrek_customize_register( $wp_customize ) {
             'type'          => 'text',
             'section'       => 'critical',
             'priority'      => 11,
-            'label'         => __( 'Critical CSS file', 'wptrek' ),
-            'description'   => __( 'Add the critical CSS file name. Must be placed in assets/styles directory.', 'wptrek' ),
+            'label'         => __('File CSS critici', 'wptrek'),
+            'description'   => __('Aggiungi il nome del file per gli stili critici contenuto nella directory <code>assets/styles.</code>. Lascia vuoto per utilizzare lo stile di default <code>theme.global.critical.css</code>', 'wptrek'),
             'settings'      => 'critical_css_settings'
         )
     );
@@ -148,47 +57,207 @@ function wptrek_customize_register( $wp_customize ) {
             'type'          => 'checkbox',
             'section'       => 'critical',
             'priority'      => 11,
-            'label'         => __( 'Critical CSS file', 'wptrek' ),
-            'description'   => __( 'Add the critical CSS file name. Must be placed in assets/styles directory.', 'wptrek' ),
+            'label'         => __('Abilita risorse critiche', 'wptrek'),
+            'description'   => __('Abilita l\'uso degli stili critici. Il file non è autogenerato ma fornito.', 'wptrek'),
             'settings'      => 'critical_css_usage'
         )
     );
-    // FontAwesome
-    $wp_customize->add_section(
-        'fontawesome',
+
+    // Posts
+    $wp_customize->add_panel(
+        'theme_posts',
         array(
-            'title'         => 'Font Awesome',
-            'description'   => __('Load globally your FontAwesome PRO Kit', 'wptrek'),
-            'priority'      => 12,
-            'panel'         => 'wptrek_tools'
-        ) 
+            'title'         => __('Articoli', 'wptrek'),
+            'priority'      => 210
+        )
     );
-    $wp_customize->add_setting(
-        'get_fontawesome',
+
+    // --- excerpt
+    $wp_customize->add_section(
+        'posts_excerpt_section',
         array(
-            'type'          => 'option',
+            'title'         => 'Estratti articoli',
+            'description'   => esc_html__('Impostazione sull\'aspetto degli estratti degli articoli', 'wptrek'),
+            'priority'      => 11,
+            'panel'         => 'theme_posts'
+        )
+    );
+
+    // --- excerpt length
+    $wp_customize->add_setting(
+        'posts_excerpt_lenght',
+        array(
+            'type'          => 'theme_mod',
             'capability'    => 'edit_theme_options',
             'transport'     => 'refresh',
-            'priority'      => 12
+            'priority'      => 11
         )
     );
     $wp_customize->add_control(
-        'fontawesome_kit',
+        'posts_excerpt_opt',
         array(
-            'type'          => 'text',
-            'section'       => 'fontawesome',
-            'priority'      => 12,
-            'label'         => __( 'Kit code', 'wptrek' ),
-            'description'   => __( 'Add your kit code / name. You can manage your kits <a href="https://fontawesome.com/kits/" target="_blank">here</a>.', 'wptrek' ),
-            'settings'      => 'get_fontawesome'
+            'type'          => 'number',
+            'section'       => 'posts_excerpt_section',
+            'priority'      => 11,
+            'label'         => esc_html__('Lunghezza dell\'estratto.', 'wptrek'),
+            'description'   => esc_html__('Fornisci il numero massimo di parole da visualizzare nell\'estratto degli articoli', 'wptrek'),
+            'settings'      => 'posts_excerpt_lenght'
         )
     );
 
-}
-add_action( 'customize_register', 'wptrek_customize_register' );
+    // Tipography
+    $wp_customize->add_panel(
+        'theme_typo',
+        array(
+            'title'         => __('Tipografia', 'wptrek'),
+            'priority'      => 305
+        )
+    );
 
-//    You don't really need it
-function wptrek_remove_css_section( $wp_customize ) {	
-	$wp_customize->remove_section( 'custom_css' );
+    for ($h = 1; $h < 7; $h++) {
+
+        $wp_customize->add_section(
+            'theme_h' . $h . '_section',
+            array(
+                'title'         => esc_html('H' . $h),
+                'description'   => __('Imposta le i valori di default per i titoli H' . $h . '.', 'wptrek'),
+                'priority'      => 11,
+                'panel'         => 'theme_typo'
+            )
+        );
+        // --- desktop size
+        $wp_customize->add_setting(
+            'theme_h' . $h . '_size',
+            array(
+                'type'          => 'theme_mod',
+                'capability'    => 'edit_theme_options',
+                'transport'     => 'refresh',
+                'priority'      => 11
+            )
+        );
+        $wp_customize->add_control(
+            'theme_h' . $h . '_size_opt',
+            array(
+                'type'          => 'number',
+                'section'       => 'theme_h' . $h . '_section',
+                'priority'      => 11,
+                'label'         => esc_html__('desktop size', 'wptrek'),
+                'description'   => esc_html__('Dimensione titolo H' . $h . '.', 'wptrek'),
+                'settings'      => 'theme_h' . $h . '_size'
+            )
+        );
+        // --- smartphone size
+        $wp_customize->add_setting(
+            'theme_h' . $h . '_small_size',
+            array(
+                'type'          => 'theme_mod',
+                'capability'    => 'edit_theme_options',
+                'transport'     => 'refresh',
+                'priority'      => 11
+            )
+        );
+        $wp_customize->add_control(
+            'theme_h' . $h . '_small_size_opt',
+            array(
+                'type'          => 'number',
+                'section'       => 'theme_h' . $h . '_section',
+                'priority'      => 11,
+                'label'         => esc_html__('smartphone size', 'wptrek'),
+                'description'   => esc_html__('Dimensione titolo H' . $h . '.', 'wptrek'),
+                'settings'      => 'theme_h' . $h . '_small_size'
+            )
+        );
+        // --- desktop line-height
+        $wp_customize->add_setting(
+            'theme_h' . $h . '_lheight',
+            array(
+                'type'          => 'theme_mod',
+                'capability'    => 'edit_theme_options',
+                'transport'     => 'refresh',
+                'priority'      => 12
+            )
+        );
+        $wp_customize->add_control(
+            'theme_h' . $h . '_lheight_opt',
+            array(
+                'type'          => 'number',
+                'section'       => 'theme_h' . $h . '_section',
+                'priority'      => 12,
+                'label'         => esc_html__('desktop line-height', 'wptrek'),
+                'description'   => esc_html__('Interlinea titolo H' . $h . '.', 'wptrek'),
+                'settings'      => 'theme_h' . $h . '_lheight'
+            )
+        );
+        // --- smartphone line-height
+        $wp_customize->add_setting(
+            'theme_h' . $h . '_small_lheight',
+            array(
+                'type'          => 'theme_mod',
+                'capability'    => 'edit_theme_options',
+                'transport'     => 'refresh',
+                'priority'      => 12
+            )
+        );
+        $wp_customize->add_control(
+            'theme_h' . $h . '_small_lheight_opt',
+            array(
+                'type'          => 'number',
+                'section'       => 'theme_h' . $h . '_section',
+                'priority'      => 12,
+                'label'         => esc_html__('smartphone line-height', 'wptrek'),
+                'description'   => esc_html__('Interlinea titolo H' . $h . '.', 'wptrek'),
+                'settings'      => 'theme_h' . $h . '_small_lheight'
+            )
+        );
+        // --- top margin
+        $wp_customize->add_setting(
+            'theme_h' . $h . '_mtop',
+            array(
+                'type'          => 'theme_mod',
+                'capability'    => 'edit_theme_options',
+                'transport'     => 'refresh',
+                'priority'      => 13
+            )
+        );
+        $wp_customize->add_control(
+            'theme_h' . $h . '_mtop_opt',
+            array(
+                'type'          => 'number',
+                'section'       => 'theme_h' . $h . '_section',
+                'priority'      => 13,
+                'label'         => esc_html__('top margin', 'wptrek'),
+                'description'   => esc_html__('top margin per i titoli H' . $h . '.', 'wptrek'),
+                'settings'      => 'theme_h' . $h . '_mtop'
+            )
+        );
+        // --- bottom margin
+        $wp_customize->add_setting(
+            'theme_h' . $h . '_mbottom',
+            array(
+                'type'          => 'theme_mod',
+                'capability'    => 'edit_theme_options',
+                'transport'     => 'refresh',
+                'priority'      => 13
+            )
+        );
+        $wp_customize->add_control(
+            'theme_h' . $h . '_mbottom_opt',
+            array(
+                'type'          => 'number',
+                'section'       => 'theme_h' . $h . '_section',
+                'priority'      => 13,
+                'label'         => esc_html__('bottom margin', 'wptrek'),
+                'description'   => esc_html__('bottom margin per i titoli H' . $h . '.', 'wptrek'),
+                'settings'      => 'theme_h' . $h . '_mbottom'
+            )
+        );
+    }
 }
-add_action( 'customize_register', 'wptrek_remove_css_section', 15 );
+add_action('customize_register', 'theme_customize_register');
+
+// This theme won't allow custom CSS
+function theme_remove_css_section($wp_customize)
+{
+    $wp_customize->remove_section('custom_css');
+}
+add_action('customize_register', 'theme_remove_css_section', 15);

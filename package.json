@@ -2,7 +2,7 @@
   "name": "wp-trek",
   "version": "1.0.0",
   "author": "Giovanni Riefolo <giovanni@riefolo.dev> (https://riefolo.dev)",
-  "description": "A WordPress starter theme featuring StarGRID",
+  "description": "The unconventional WordPress starter theme for non-of-this-earth projects.",
   "license": "GNU GPL v3.0",
   "private": true,
   "repository": {
@@ -38,8 +38,8 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "engage": "gulp default",
-    "engage:browser": "gulp gulp browsersync",
+    "engage": "gulp watch",
+    "engage:browser": "gulp browsersync",
     "take-us-out": "gulp build"
   }
 }

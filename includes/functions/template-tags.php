@@ -8,8 +8,8 @@
 // --- add the Google Tag code.
 if ( ! function_exists( 'wptrek_get_gtag' ) ) :
 	function wptrek_get_gtag() {
-		$code 	= echo get_option('google_tag_snippet');
-		$nocode = echo get_option('google_tag_snippet_nocode');
+		$code 	= get_option('google_tag_snippet');
+		$nocode = get_option('google_tag_snippet_nocode');
     }
 endif;
 // --- add the Facebook Pixel code.
