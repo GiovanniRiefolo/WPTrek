@@ -1,5 +1,5 @@
-@import "util/sg.colors";
-@import "sg.settings";
+@import "../utilities/theme.colors";
+@import "../typography/theme.typo";
 
 *{
     font-family: $content-font;

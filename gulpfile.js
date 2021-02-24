@@ -69,6 +69,21 @@ gulp.task('styles:temp', function () {
         .pipe(gulp.dest(SOURCE.styles + 'templates'));
 });
 
+gulp.task('styles:admin', function () {
+    return gulp.src(SOURCE.styles + 'scss/admin/*.scss')  
+        .pipe(sass(SASS_config.options).on('error', sass.logError))
+        .pipe(postcss(CSS_plugins))
+        .pipe(gulp.dest(SOURCE.styles + 'admin'));
+});
+
+gulp.task('styles:gutenberg', function () {
+    return gulp.src(SOURCE.styles + 'scss/admin/*.scss')  
+        .pipe(sass(SASS_config.options).on('error', sass.logError))
+        .pipe(postcss(CSS_plugins))
+        .pipe(gulp.dest(SOURCE.styles + 'gutenberg'));
+});
+
+
 gulp.task('styles:part', function () {
     return gulp.src(SOURCE.styles + 'scss/templates/partials/*.scss')
         .pipe(sass(SASS_config.options).on('error', sass.logError))
@@ -125,6 +140,8 @@ gulp.task('browsersync', function () {
     gulp.watch(SOURCE.styles + 'scss/*.scss', gulp.parallel('styles:global')).on('change', browserSync.reload);
     gulp.watch(SOURCE.styles + 'scss/templates/*.scss', gulp.parallel('styles:temp')).on('change', browserSync.reload);
     gulp.watch(SOURCE.styles + 'scss/templates/partials/*.scss', gulp.parallel('styles:part')).on('change', browserSync.reload);
+    gulp.watch(SOURCE.styles + 'scss/admin/*.scss', gulp.parallel('styles:admin')).on('change', browserSync.reload);
+    gulp.watch(SOURCE.styles + 'scss/gutenberg/*.scss', gulp.parallel('styles:gutenberg')).on('change', browserSync.reload);
     gulp.watch(SOURCE.blocks + '**/*.scss', gulp.parallel('styles:block')).on('change', browserSync.reload);
     gulp.watch(SOURCE.scripts + 'vendors/*.js', gulp.series(
         gulp.parallel('scripts:vendors'),
@@ -141,6 +158,8 @@ gulp.task('watch', function () {
     gulp.watch(SOURCE.styles + 'scss/*.scss', gulp.parallel('styles:global'));
     gulp.watch(SOURCE.styles + 'scss/templates/*.scss', gulp.parallel('styles:temp'));
     gulp.watch(SOURCE.styles + 'scss/templates/partials/*.scss', gulp.parallel('styles:part'));
+    gulp.watch(SOURCE.styles + 'scss/admin/*.scss', gulp.parallel('styles:admin'));
+    gulp.watch(SOURCE.styles + 'scss/gutenberg/*.scss', gulp.parallel('styles:gutenberg'));
     gulp.watch(SOURCE.blocks + '**/*.scss', gulp.parallel('styles:block'));
     gulp.watch(SOURCE.scripts + 'vendors/*.js', gulp.parallel('scripts:vendors'));
     // --- remove comment if you want BrowserSync to reload on image chages.
@@ -161,6 +180,8 @@ gulp.task('default',
             'styles:temp',
             'styles:part',
             'styles:block',
+            'styles:admin',
+            'styles:gutenberg',
             'scripts:vendors'
         )
     )
