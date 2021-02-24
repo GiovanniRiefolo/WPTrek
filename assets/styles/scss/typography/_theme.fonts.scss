@@ -1,0 +1,35 @@
+// Import custom fonts using @font-face
+
+$font-baseurl: "../fonts/";
+
+@mixin font-face(
+  $font-name,
+  $font-directory,
+  $font-filename,
+  $font-style,
+  $font-weight
+) {
+  @font-face {
+    font: {
+      family: $font-name;
+      weight: $font-weight;
+      style: $font-style;
+      // swap by default
+      // @link https://developers.google.com/web/updates/2016/02/font-display#swap
+      display: swap;
+    }
+    src: url($font-baseurl + "#{$font-directory}/" + $font-filename + ".woff")
+        format(".woff"),
+      url($font-baseurl + "#{$font-directory}/" + $font-filename + ".woff2")
+        format("woff2"),
+      url($font-baseurl + "#{$font-directory}/" + $font-filename + ".ttf")
+        format("truetype"),
+      url($font-baseurl + "#{$font-directory}/" + $font-filename + ".svg?#webfont")
+        format("svg"),
+      url($font-baseurl + "#{$font-directory}/" + $font-filename + ".eot"),
+      url($font-baseurl + "#{$font-directory}/" + $font-filename + ".eot?#iefix")
+        format("embedded-opentype");
+  }
+}
+
+@include font-face("test", "testdir", "testRegular", regular, 400);

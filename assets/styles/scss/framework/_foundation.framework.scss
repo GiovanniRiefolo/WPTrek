@@ -1,0 +1,16 @@
+// Foundation
+// --- main file
+@import 'foundation';
+// --- components -> check the full list @https://get.foundation/sites/docs/sass.html
+@include foundation-global-styles;
+@include foundation-forms;
+// --- @include foundation-typography;
+@include foundation-xy-grid-classes;
+// --- containers
+@include foundation-off-canvas;
+@include foundation-reveal;
+// --- layouts
+@include foundation-sticky;
+// --- helpers
+@include foundation-flex-classes;
+@include foundation-visibility-classes;

@@ -56,32 +56,3 @@ function register_acf_options_pages()
 }
 // Hook into acf initialization.
 add_action('acf/init', 'register_acf_options_pages');
-
-// Adding custom palet to the ACF color picker
-// @link https://www.advancedcustomfields.com/resources/javascript-api/#filters-color_picker_args
-// --- this scripts rely on Iris by Automattic
-function wptrek_color_picker_palette_primary()
-{
-?>
-    <script type="text/javascript">
-        (function($) {
-            acf.add_filter('color_picker_args', function(args, color_primary) {
-                // change the official WordPress color palette with your own
-                // this palette will be shown in the color pickers
-                // @link https://make.wordpress.org/design/handbook/design-guide/foundations/colors/
-                args.palettes = [
-                    '#0073AA', '#00A0D2', '#191E23', '#23282D',
-                    '#32373C', '#82878C', '#A0A5AA', '#B4B9BE'
-                ];
-                args.options = [
-                    width = '100'
-                ];
-                // return
-                return args;
-            });
-
-        })(jQuery);
-    </script>
-<?php
-}
-add_action('acf/input/admin_footer', 'wptrek_color_picker_palette_primary');

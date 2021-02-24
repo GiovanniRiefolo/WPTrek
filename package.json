@@ -5,11 +5,11 @@
   "description": "A WordPress starter theme featuring StarGRID",
   "license": "GNU GPL v3.0",
   "private": true,
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/GiovanniRiefolo/WPTrek.git"
   },
-  "bug":{
+  "bug": {
     "url": "https://github.com/GiovanniRiefolo/WPTrek/issues"
   },
   "dependencies": {
@@ -25,7 +25,10 @@
     "gulp-babel": "8.0.0",
     "gulp-plumber": "1.2.1",
     "node-sass": "^4.13.0",
-    "precss": "^4.0.0"
+    "precss": "^4.0.0",
+    "tailwindcss": "^2.0.3",
+    "foundation-sites": "^6.6.3",
+    "bootstrap": "^4.6.0"
   },
   "devDependencies": {
     "browser-sync": "^2.26.14",
@@ -36,7 +39,7 @@
   "scripts": {
     "gulp": "gulp",
     "engage": "gulp default",
-    "engage:browser": "gulp gulp browsersync"
-    //"take-us-out": "gulp browsersync"
+    "engage:browser": "gulp gulp browsersync",
+    "take-us-out": "gulp build"
   }
 }

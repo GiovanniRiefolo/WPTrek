@@ -27,14 +27,6 @@ if ( ! function_exists( 'wptrek_setup' ) ) :
         add_theme_support( 'post-thumbnails' );
         set_post_thumbnail_size( 1200, 9999 );
 
-        //  WP Trek uses wp_nav_menu() in two locations.
-        register_nav_menus(
-            array(
-                'main' => __( 'Main Menu', 'wptrek' ),
-                'footer' => __( 'Footer Menu', 'wptrek' ),
-            )
-        );
-
         //  Switch default core markup for search form, comment form, and comments to output valid HTML5.
         add_theme_support(
             'html5',
@@ -79,37 +71,27 @@ if ( ! function_exists( 'wptrek_setup' ) ) :
 
 add_action( 'after_setup_theme', 'wptrek_setup' );
 
-//  Register widget area.
-function wptrek_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => __( 'Post Sidebar', 'wptrek' ),
-			'id'            => 'post-sidebar',
-			'description'   => __( 'Add widgets here to beam them up in the post sidebar.', 'wptrek' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'wptrek_widgets_init' );
 
-//  Required files
-// --- assets
+// Navigation menu
+require_once get_template_directory() . '/includes/functions/navigation-menus.php';
+
+// Image sizes
+require_once get_template_directory() . '/includes/functions/image-sizes.php';
+
+//  Assets
 require_once get_template_directory() . '/includes/functions/assets.php';
 
-// --- template tags
+// Template tags
 require_once get_template_directory() . '/includes/functions/template-tags.php';
 
-// --- color palette
+// Color palette
+require_once get_template_directory() . '/includes/functions/color-palette.php';
+
+// Custom fields setup
 require_once get_template_directory() . '/includes/functions/custom-fields.php';
 
-// --- custom fields
-require_once get_template_directory() . '/includes/functions/custom-fields.php';
+// Extra features
+require_once get_template_directory() . '/includes/functions/extra.php';
 
-// --- blocks
-require_once get_template_directory() . '/includes/blocks/vulcan-blocks.php';
-
-// --- the customizer
-require_once get_template_directory() . '/classes/custominizer/wptrek-customizer.php';
+// Customizer
+require_once get_template_directory() . '/includes/customizer/customizer.php';

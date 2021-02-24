@@ -1,0 +1,53 @@
+// This is be the global stylesheet where you can style components
+// that are distributed all over the UI. It loads after critical assets.
+
+// Importing theme settings
+@import "settings/theme.settings";
+
+// Start customization!
+// --- content selection
+::selection {
+  color: $black;
+  background: $white;
+}
+// --- global font
+body {
+  color: $content-font-color;
+  font:{
+    family: $content-font;
+    size: $content-font-size;
+  }
+}
+// --- paragraphs and anchors
+:root {
+  p {
+    padding: 0 0 $content-bottom-space 0;
+    font: {
+      size: $content-font-size;
+      weight: 400;
+    }
+    line-height: $line-height;
+
+    & a {
+      color: $anchor-color;
+      text-decoration: $anchor-decoration;
+    }
+  }
+}
+// --- headings
+@for $i from 1 through 6 {
+  :root h#{$i} {
+    margin-top: 0;
+    width: 100%;
+    $size: $heading-base + $heading-scale * (6 - $i);
+    color: $heading-font-color;
+    font: {
+      family: $heading-font;
+      weight: $heading-font-weight;
+      size: rem-calc($size);
+    }
+    line-height: $size * $heading-line-height; // +20%
+  }
+}
+
+@import "theme.global.responsive";

@@ -1,0 +1,22 @@
+@import "../utilities/theme.calc";
+
+// Typography settings
+// --- paragraph and global content
+$content-font: Arial, Helvetica, sans-serif; 
+$content-font-size: rem-calc(24);
+$content-font-color: $black;
+$content-bottom-space: calc(#{$content-font-size} / 1.2);
+$line-height: 1.618;
+$font-size-conversion: 16;
+
+// --- headings
+$heading-font: $content-font;
+$heading-font-color: $black;
+$heading-font-weight: bold;
+$heading-scale: 8;
+$heading-base: 20px;
+$heading-line-height: 1.2;
+
+// --- anchors
+$anchor-color: $black;
+$anchor-decoration: none;

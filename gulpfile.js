@@ -13,12 +13,12 @@ var postcss         = require('gulp-postcss');
 var sass            = require('gulp-sass');
 sass.compiler       = require('node-sass');
 var uglify          = require('gulp-uglify');
-var babel           = require('gulp-babel');
-var plumber         = require('gulp-plumber');
+// var babel           = require('gulp-babel');
+// var plumber         = require('gulp-plumber');
 var psi             = require('psi');
 
 // Development site URL
-var SITE = 'http://riefolo.dev'
+var SITE = 'http://localhost'
 
 //  Assets source paths
 var SOURCE = {
@@ -37,7 +37,13 @@ var SASS_config = {
         outputStyle: 'nested',
         // Set this to true to compile SASS code without code.
         // No brackets will be harmed by phasers.
-        indentedSyntax: false,
+        indentedSyntax: false
+    },
+    includes:{
+        includePaths: [
+            'node_modules/foundation-sites/scss',
+            'node_modules/tailwindcss/',
+            'node_modules/bootstrap/scss']
     }
 };
 
@@ -50,23 +56,24 @@ var CSS_plugins = [
 //  Styling tasks
 gulp.task('styles:global', function () {
     return gulp.src(SOURCE.styles + 'scss/*.scss')
+        .pipe(sass(SASS_config.includes))
         .pipe(sass(SASS_config.options).on('error', sass.logError))
         .pipe(postcss(CSS_plugins))
         .pipe(gulp.dest(SOURCE.styles));
 });
 
 gulp.task('styles:temp', function () {
-    return gulp.src(SOURCE.styles + 'scss/templates/*.scss')
+    return gulp.src(SOURCE.styles + 'scss/templates/*.scss')  
         .pipe(sass(SASS_config.options).on('error', sass.logError))
         .pipe(postcss(CSS_plugins))
         .pipe(gulp.dest(SOURCE.styles + 'templates'));
 });
 
 gulp.task('styles:part', function () {
-    return gulp.src(SOURCE.styles + 'scss/templates/parts/*.scss')
+    return gulp.src(SOURCE.styles + 'scss/templates/partials/*.scss')
         .pipe(sass(SASS_config.options).on('error', sass.logError))
         .pipe(postcss(CSS_plugins))
-        .pipe(gulp.dest(SOURCE.styles + 'templates/parts'));
+        .pipe(gulp.dest(SOURCE.styles + 'templates/partials'));
 });
 
 gulp.task('styles:block', function () {
@@ -103,9 +110,9 @@ gulp.task('images', function () {
 });
 
 //  Browser Sync Task
-//  --  watching files changes and update browser view
+// --- watching files changes and update browser view
 gulp.task('browsersync', function () {
-//  ----  List of watched files
+    // --- list of watched files
     const files = [
         SOURCE.styles,
         SOURCE.blocks,
@@ -117,7 +124,7 @@ gulp.task('browsersync', function () {
     });
     gulp.watch(SOURCE.styles + 'scss/*.scss', gulp.parallel('styles:global')).on('change', browserSync.reload);
     gulp.watch(SOURCE.styles + 'scss/templates/*.scss', gulp.parallel('styles:temp')).on('change', browserSync.reload);
-    gulp.watch(SOURCE.styles + 'scss/templates/parts/*.scss', gulp.parallel('styles:part')).on('change', browserSync.reload);
+    gulp.watch(SOURCE.styles + 'scss/templates/partials/*.scss', gulp.parallel('styles:part')).on('change', browserSync.reload);
     gulp.watch(SOURCE.blocks + '**/*.scss', gulp.parallel('styles:block')).on('change', browserSync.reload);
     gulp.watch(SOURCE.scripts + 'vendors/*.js', gulp.series(
         gulp.parallel('scripts'),
@@ -125,9 +132,12 @@ gulp.task('browsersync', function () {
     gulp.watch(SOURCE.scripts + 'theme.js', gulp.series(
         gulp.parallel('scripts'),
     )).on('change', browserSync.reload);
-//  ----  Remove comment if you want BrowserSync to reload on image chages.
+    // --- remove comment if you want BrowserSync to reload on image chages.
     // gulp.watch(SOURCE.images, gulp.parallel('images')).on('change', browserSync.reload);
 });
+
+// Build Task
+// --- to be done
 
 //  Default Task
 gulp.task('default',
