@@ -55,16 +55,32 @@ if ( ! function_exists( 'wptrek_setup' ) ) :
             )
         );
 
-        //  Add support for Block Styles.
-        add_theme_support( 'wp-block-styles' );
-
-        //  Add support for responsive embedded content.
-        add_theme_support( 'responsive-embeds' );
 
         // Implementing selective Refresh Support for Widgets
         add_theme_support( 'customize-selective-refresh-widgets' );
-    
 
+        // Gutenberg dedicated theme support functions
+
+        //  --- add support for Block Styles.
+        add_theme_support( 'wp-block-styles' );
+
+        // --- add support for wide alignment
+        add_theme_support( 'align-wide' );
+
+        //  --- add support for responsive embedded content.
+        add_theme_support( 'responsive-embeds' );
+    
+        // --- add support for <p> anf <h*> custom line-height 
+        add_theme_support( 'custom-line-height' );
+
+        // --- add support for custom units
+        add_theme_support( 'custom-units', 'rem', 'em' );
+
+        // --- add support for spacing control
+        add_theme_support( 'custom-spacing');
+        
+        // --- add support for link color control (experimental)
+        add_theme_support('experimental-link-color');
     }
 
     endif;

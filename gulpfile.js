@@ -16,6 +16,7 @@ var uglify          = require('gulp-uglify');
 // var babel           = require('gulp-babel');
 // var plumber         = require('gulp-plumber');
 var psi             = require('psi');
+var googleWebFonts  = require('gulp-google-webfonts');
 
 // Development site URL
 var SITE = 'http://localhost'
@@ -26,6 +27,7 @@ var SOURCE = {
     styles: './assets/styles/',
     images: './assets/images/',
     blocks: './blocks/',
+    fonts:  './assets/fonts' 
 };
 
 //  Set local URL if using Browser-Sync
@@ -52,6 +54,14 @@ var CSS_plugins = [
     precss(),
     autoprefixer(),
 ];
+
+// Web Fonts options
+var GFONTS_config = {
+    fontsDir: 'woff/',
+    cssDir: '',
+    cssFilename: 'google-fonts.css',
+    fontDisplayType: 'swap'
+};
 
 //  Styling tasks
 gulp.task('styles:global', function () {
@@ -82,7 +92,6 @@ gulp.task('styles:gutenberg', function () {
         .pipe(postcss(CSS_plugins))
         .pipe(gulp.dest(SOURCE.styles + 'gutenberg'));
 });
-
 
 gulp.task('styles:part', function () {
     return gulp.src(SOURCE.styles + '_scss/templates/partials/*.scss')
@@ -123,6 +132,13 @@ gulp.task('images', function () {
         .pipe(webp())
         .pipe(gulp.dest(SOURCE.images));
 });
+
+// Font task
+gulp.task('fonts', function(){
+    return gulp.src('./google-fonts.list')
+    .pipe(googleWebFonts(GFONTS_config))
+    .pipe(gulp.dest(SOURCE.fonts));
+})
 
 //  Watching Tasks
 // --- watching files with BrowserSync
