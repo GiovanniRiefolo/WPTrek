@@ -1,0 +1,75 @@
+@import "../utilities/theme.colors";
+@import "../typography/theme.typo";
+
+// Global Styles
+
+// --- colors, background colors, and link colors WP generated classes
+@mixin has-color($has-color, $has-color-name) {
+  .has-#{$has-color-name} {
+    &-color {
+      color: $has-color;
+    }
+    &-background-color {
+      background-color: $has-color;
+    }
+  }
+  --wp--preset--color--#{$has-color-name}: #{$has-color};
+}
+
+:root {
+  @include has-color($blue, "blue");
+  @include has-color($blue-medium, "blue-medium");
+  @include has-color($black, "black");
+  @include has-color($grey-dark, "grey-dark");
+  @include has-color($grey-medium, "grey-medium");
+  @include has-color($grey-light, "grey-light");
+  @include has-color($white, "white");
+}
+
+// --- helper classes for WP buttons hover state
+@mixin has-hover($has-color, $has-color-name, $text-color) {
+  .has-hover-#{$has-color-name} {
+    & a:hover {
+      background-color: $has-color;
+      color: $text-color;
+    }
+  }
+}
+
+:root {
+  @include has-hover($blue, "blue", $white);
+  @include has-hover($blue-medium, "blue-medium", $white);
+  @include has-hover($black, "black", $white);
+  @include has-hover($grey-dark, "grey-dark", $white);
+  @include has-hover($grey, "grey", $white);
+  @include has-hover($grey-medium, "grey-medium", $white);
+  @include has-hover($grey-light, "grey-light", $black);
+  @include has-hover($white, "white", $black);
+}
+
+// Use theme fonts for the blocks
+:root {
+  p,
+  li {
+    font-family: $content-font;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $heading-font;
+  }
+  a {
+    font-family: inherit;
+  }
+}
+
+// --- remove max-width for editor view only
+.wp-block {
+  max-width: none;
+}
+
+@import "../wordpress.blocks";

@@ -1,6 +1,7 @@
-=== Advanced Custom Fields Pro ===
+=== Advanced Custom Fields ===
 Contributors: elliotcondon
 Tags: acf, fields, custom fields, meta, repeater
+Stable tag: 5.9.5
 Requires at least: 4.7
 Tested up to: 5.6
 Requires PHP: 5.6

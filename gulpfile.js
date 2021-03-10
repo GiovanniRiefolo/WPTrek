@@ -1,67 +1,49 @@
 //   Packages
-var autoprefixer    = require('autoprefixer');
-var precss          = require('precss');
-var browserSync     = require('browser-sync').create();
-var cssnano         = require("cssnano");
+var autoprefixer = require('autoprefixer');
+var precss = require('precss');
+var browserSync = require('browser-sync').create();
+var cssnano = require("cssnano");
 
 //  Gulp
-var gulp            = require('gulp');
-var concat          = require('gulp-concat');
-var imagemin        = require('gulp-imagemin');
-var webp            = require('gulp-webp');
-var postcss         = require('gulp-postcss');
-var sass            = require('gulp-sass');
-sass.compiler       = require('node-sass');
-var uglify          = require('gulp-uglify');
-// var babel           = require('gulp-babel');
-// var plumber         = require('gulp-plumber');
-var psi             = require('psi');
-var googleWebFonts  = require('gulp-google-webfonts');
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const imagemin = require('gulp-imagemin');
+const webp = require('gulp-webp');
+const postcss = require('gulp-postcss');
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
+const uglify = require('gulp-uglify');
+// var babel = require('gulp-babel');
+// var plumber = require('gulp-plumber');
+const psi = require('psi');
+const googleWebFonts = require('gulp-google-webfonts');
 
 // Development site URL
-var SITE = 'http://localhost'
+const SITE = 'http://localhost'
 
 //  Assets source paths
-var SOURCE = {
-    scripts: './assets/scripts/',
-    styles: './assets/styles/',
-    images: './assets/images/',
-    blocks: './blocks/',
-    fonts:  './assets/fonts' 
-};
-
-//  Set local URL if using Browser-Sync
-const LOCAL_URL = SITE;
+const CONFIG = require('./gulp/config.json');
 
 //  SASS options
-var SASS_config = {
+const SASS_config = {
     options: {
         outputStyle: 'nested',
         // Set this to true to compile SASS code without code.
         // No brackets will be harmed by phasers.
         indentedSyntax: false
     },
-    includes:{
+    includes: {
         includePaths: [
             'node_modules/foundation-sites/scss',
             'node_modules/tailwindcss/',
             'node_modules/bootstrap/scss']
     }
 };
-
-var CSS_plugins = [
+const CSS_plugins = [
     cssnano(),
     precss(),
     autoprefixer(),
 ];
-
-// Web Fonts options
-var GFONTS_config = {
-    fontsDir: 'woff/',
-    cssDir: '',
-    cssFilename: 'google-fonts.css',
-    fontDisplayType: 'swap'
-};
 
 //  Styling tasks
 gulp.task('styles:global', function () {
@@ -73,24 +55,24 @@ gulp.task('styles:global', function () {
 });
 
 gulp.task('styles:temp', function () {
-    return gulp.src(SOURCE.styles + '_scss/templates/*.scss')  
+    return gulp.src(SOURCE.styles + '_scss/templates/*.scss')
         .pipe(sass(SASS_config.options).on('error', sass.logError))
         .pipe(postcss(CSS_plugins))
         .pipe(gulp.dest(SOURCE.styles + 'templates'));
 });
 
 gulp.task('styles:admin', function () {
-    return gulp.src(SOURCE.styles + '_scss/admin/*.scss')  
+    return gulp.src(SOURCE.styles + '_scss/admin/*.scss')
         .pipe(sass(SASS_config.options).on('error', sass.logError))
         .pipe(postcss(CSS_plugins))
         .pipe(gulp.dest(SOURCE.styles + 'admin'));
 });
 
-gulp.task('styles:gutenberg', function () {
-    return gulp.src(SOURCE.styles + '_scss/admin/*.scss')  
+gulp.task('styles:editor', function () {
+    return gulp.src(SOURCE.styles + '_scss/editor/*.scss')
         .pipe(sass(SASS_config.options).on('error', sass.logError))
         .pipe(postcss(CSS_plugins))
-        .pipe(gulp.dest(SOURCE.styles + 'gutenberg'));
+        .pipe(gulp.dest(SOURCE.styles + 'editor'));
 });
 
 gulp.task('styles:part', function () {
@@ -134,14 +116,23 @@ gulp.task('images', function () {
 });
 
 // Font task
-gulp.task('fonts', function(){
+const GFONTS_config = {
+    fontsDir: 'assets/fonts/woff/',
+    cssDir: 'assets/styles/',
+    cssFilename: 'google-fonts.css',
+    fontDisplayType: 'swap',
+    relativePaths: true
+};
+gulp.task('fonts', function () {
     return gulp.src('./google-fonts.list')
-    .pipe(googleWebFonts(GFONTS_config))
-    .pipe(gulp.dest(SOURCE.fonts));
+        .pipe(googleWebFonts(GFONTS_config))
+        .pipe(gulp.dest('./'));
 })
 
 //  Watching Tasks
 // --- watching files with BrowserSync
+//  Set local URL if using Browser-Sync
+const LOCAL_URL = SITE;
 gulp.task('browsersync', function () {
     // --- list of watched files
     const files = [
@@ -157,7 +148,7 @@ gulp.task('browsersync', function () {
     gulp.watch(SOURCE.styles + '_scss/templates/*.scss', gulp.parallel('styles:temp')).on('change', browserSync.reload);
     gulp.watch(SOURCE.styles + '_scss/templates/partials/*.scss', gulp.parallel('styles:part')).on('change', browserSync.reload);
     gulp.watch(SOURCE.styles + '_scss/admin/*.scss', gulp.parallel('styles:admin')).on('change', browserSync.reload);
-    gulp.watch(SOURCE.styles + '_scss/gutenberg/*.scss', gulp.parallel('styles:gutenberg')).on('change', browserSync.reload);
+    gulp.watch(SOURCE.styles + '_scss/editor/*.scss', gulp.parallel('styles:editor')).on('change', browserSync.reload);
     gulp.watch(SOURCE.blocks + '**/*.scss', gulp.parallel('styles:block')).on('change', browserSync.reload);
     gulp.watch(SOURCE.scripts + 'vendors/*.js', gulp.series(
         gulp.parallel('scripts:vendors'),
@@ -172,18 +163,22 @@ gulp.task('browsersync', function () {
 gulp.task('watch', function () {
     // --- list of watched files
     gulp.watch(SOURCE.styles + '_scss/*.scss', gulp.parallel('styles:global'));
+    gulp.watch(SOURCE.styles + '_scss/*/*.scss', gulp.parallel('styles:global'));
     gulp.watch(SOURCE.styles + '_scss/templates/*.scss', gulp.parallel('styles:temp'));
     gulp.watch(SOURCE.styles + '_scss/templates/partials/*.scss', gulp.parallel('styles:part'));
     gulp.watch(SOURCE.styles + '_scss/admin/*.scss', gulp.parallel('styles:admin'));
-    gulp.watch(SOURCE.styles + '_scss/gutenberg/*.scss', gulp.parallel('styles:gutenberg'));
+    gulp.watch(SOURCE.styles + '_scss/editor/*.scss', gulp.parallel('styles:editor'));
     gulp.watch(SOURCE.blocks + '**/*.scss', gulp.parallel('styles:block'));
     gulp.watch(SOURCE.scripts + 'vendors/*.js', gulp.parallel('scripts:vendors'));
     // --- remove comment if you want BrowserSync to reload on image chages.
     // gulp.watch(SOURCE.images, gulp.parallel('images'));
 });
 
-// Build Task
-// --- to be done
+// Build Tasks
+gulp.task('build', function () {
+        return gulp.src('index.php')
+    .pipe(gulp.dest(CONFIG.build_dir));
+});
 
 //  Default Task
 gulp.task('default',
@@ -197,7 +192,7 @@ gulp.task('default',
             'styles:part',
             'styles:block',
             'styles:admin',
-            'styles:gutenberg',
+            'styles:editor',
             'scripts:vendors'
         )
     )

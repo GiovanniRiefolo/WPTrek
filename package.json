@@ -7,16 +7,17 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GiovanniRiefolo/WPTrek.git"
+    "url": "git+https://github.com/GiovanniRiefolo/lamitex.git"
   },
   "bug": {
-    "url": "https://github.com/GiovanniRiefolo/WPTrek/issues"
+    "url": "https://github.com/GiovanniRiefolo/lamitex/issues"
   },
   "dependencies": {
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^7.1.0",
+    "gulp-google-webfonts": "^4.0.0",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
@@ -34,10 +35,11 @@
     "browser-sync": "^2.26.14",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "psi": "4.1.0"
+    "psi": "^4.1.0"
   },
   "scripts": {
     "gulp": "gulp",
+    "install:gfonts": "gulp fonts",
     "engage": "gulp watch",
     "engage:browser": "gulp browsersync",
     "take-us-out": "gulp build"

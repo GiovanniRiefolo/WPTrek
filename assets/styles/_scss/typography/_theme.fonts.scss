@@ -1,3 +1,8 @@
+// Import Google fonts
+// note that Google fonts are loaded from fonts.list file
+// after executing "npm run install:gfonts"
+@import "../google-fonts.css";
+
 // Import custom fonts using @font-face
 
 $font-baseurl: "../fonts/";
@@ -32,4 +37,4 @@ $font-baseurl: "../fonts/";
   }
 }
 
-@include font-face("test", "testdir", "testRegular", regular, 400);
+// @include font-face("test", "testdir", "testRegular", regular, 400);

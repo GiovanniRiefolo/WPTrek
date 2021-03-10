@@ -36,23 +36,3 @@ function acf_settings_show_admin($show_admin)
     }
 }
 add_filter('acf/settings/show_admin', 'acf_settings_show_admin');
-
-// Option pages with 'ACF Option Pages'
-function register_acf_options_pages()
-{
-    // Uncomment the following line to show an option page
-    // if (!function_exists('acf_add_options_page'))
-    //     return;
-    // --- register theme setting option page
-    // $option_page = acf_add_options_page(array(
-    //     'page_title'    => __('Tema'),
-    //     'menu_title'    => __('Tema'),
-    //     'menu_slug'     => 'impostazioni-tema',
-    //     'capability'    => 'edit_posts',
-    //     'redirect'      => false,
-    //     'icon_url' => 'dashicons-editor-code',
-    //     'position' => '2.1'
-    // ));
-}
-// Hook into acf initialization.
-add_action('acf/init', 'register_acf_options_pages');
