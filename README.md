@@ -26,7 +26,7 @@ Once you did it, WP Trek should be installed and fully running on your local mac
 
 ### Start theme development
 
-Before starting theme development update `gulpfile.js:18` with your local development URL. 
+Before starting theme development update `index.js:18` with your local development URL. 
 
 Once you did it you can run 
 ````bash
@@ -49,3 +49,7 @@ The Customizer will give you useful settings for your project. Stop changing col
 1. Marketing Tools - Here you can add your custom scripts like the Google Tag Manager and the Facebook Pixel.
 2. Dev Tools - Here you can activate pre-bundled libraries with ready-to-go implementation with Vulcan Blocks and load critical resources.
 
+# Tools
+## A11y
+- [WordPress specifications](https://developer.wordpress.org/themes/functionality/accessibility/)
+- 

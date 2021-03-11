@@ -1,0 +1,54 @@
+{
+  "dir": {
+    "build": {
+      "main": "./../build/",
+      "assets": {
+        "main": "./../build/assets/",
+        "scripts": "./../build/assets/scripts/",
+        "styles": {
+          "main": "./../build/assets/styles/",
+          "admin": "./../build/assets/styles/admin",
+          "editor": "./../build/assets/styles/editor/",
+          "templates": "./../build/assets/styles/templates/"
+        },
+        "fonts": "./../build/assets/fonts",
+        "iconfonts": "./../build/assets/fonts/iconfonts",
+        "images": "./../build/assets/images/"
+      }
+    },
+    "dev": {
+      "main": "./",
+      "scripts": {
+        "main": "./assets/scripts/",
+        "libraries" : "./assets/scripts/libraries"
+      },
+      "styles": {
+        "main": "./assets/styles/",
+        "templates": "./assets/styles/templates/",
+        "admin": "./assets/styles/admin/",
+        "editor": "./assets/styles/editor/"
+      },
+      "images": "./assets/images/",
+      "fonts": "./assets/fonts/",
+      "iconfonts": "./assets/fonts/iconfonts"
+    },
+    "scss": {
+      "main": "./assets/styles/_scss",
+      "templates": "./assets/styles/_scss/templates/",
+      "partials": "./assets/styles/_scss/templates/partials/",
+      "admin": "./assets/styles/_scss/admin/",
+      "editor": "./assets/styles/_scss/editor/"
+    },
+    "js": {
+      "libraries": "./assets/scripts/libraries/"
+    },
+    "images": {
+      "raw": "./assets/images/pre/"
+    }
+  },
+  "files": {
+    "fonts": {
+      "list": "gulp/google-fonts.list"
+    }
+  }
+}
