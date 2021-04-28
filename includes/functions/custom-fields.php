@@ -20,7 +20,7 @@ function acf_json_load_point($paths)
     // remove original path (optional)
     unset($paths[0]);
     // append path
-    $paths[] = get_template_directory() . '/inc/acf/acf-json/';
+    $paths[] = get_template_directory() . '/includes/acf/acf-json/';
     // return
     return $paths;
 }
