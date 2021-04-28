@@ -1,35 +1,36 @@
 {
   "name": "wp-trek",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "author": "Giovanni Riefolo <giovanni@riefolo.dev> (https://riefolo.dev)",
   "description": "The unconventional WordPress starter theme for non-of-this-earth projects.",
   "license": "GNU GPL v3.0",
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
   "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GiovanniRiefolo/lamitex.git"
   },
   "bug": {
-    "url": "https://github.com/GiovanniRiefolo/lamitex/issues"
+    "url": "https://github.com/GiovanniRiefolo/WPTrek/issues"
   },
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "cssnano": "^4.1.10",
+    "foundation-sites": "^6.6.3",
     "gulp": "^4.0.2",
+    "gulp-babel": "8.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^7.1.0",
     "gulp-google-webfonts": "^4.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
-    "gulp-babel": "8.0.0",
-    "gulp-plumber": "1.2.1",
     "node-sass": "^4.13.0",
     "precss": "^4.0.0",
-    "tailwindcss": "^2.0.3",
-    "foundation-sites": "^6.6.3",
-    "bootstrap": "^4.6.0"
+    "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
     "browser-sync": "^2.26.14",
@@ -42,6 +43,6 @@
     "install:gfonts": "gulp fonts",
     "engage": "gulp watch",
     "engage:browser": "gulp browsersync",
-    "take-us-out": "gulp build"
+    "take-us-out": "gulp build:apart"
   }
 }

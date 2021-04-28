@@ -8,7 +8,7 @@ function theme_customize_register($wp_customize)
         'theme_opt',
         array(
             'title'         => __('Ottimizzazioni tema', 'wptrek'),
-            'priority'      => 205
+            'priority'      => 205,
         )
     );
     // Critical resources
@@ -18,7 +18,7 @@ function theme_customize_register($wp_customize)
             'title'         => 'Percorso risorse critiche',
             'description'   => __('Inserisci il nomi dei file delle risorse critiche.', 'wptrek'),
             'priority'      => 11,
-            'panel'         => 'theme_opt'
+            'panel'         => 'theme_opt',
         )
     );
     // --- critical CSS
@@ -28,7 +28,7 @@ function theme_customize_register($wp_customize)
             'type'          => 'theme_mod',
             'capability'    => 'edit_theme_options',
             'transport'     => 'refresh',
-            'priority'      => 11
+            'priority'      => 11,
         )
     );
     $wp_customize->add_control(
@@ -39,7 +39,7 @@ function theme_customize_register($wp_customize)
             'priority'      => 11,
             'label'         => __('File CSS critici', 'wptrek'),
             'description'   => __('Aggiungi il nome del file per gli stili critici contenuto nella directory <code>assets/styles.</code>. Lascia vuoto per utilizzare lo stile di default <code>theme.global.critical.css</code>', 'wptrek'),
-            'settings'      => 'critical_css_settings'
+            'settings'      => 'critical_css_settings',
         )
     );
     $wp_customize->add_setting(
@@ -48,7 +48,7 @@ function theme_customize_register($wp_customize)
             'type'          => 'theme_mod',
             'capability'    => 'edit_theme_options',
             'transport'     => 'refresh',
-            'priority'      => 12
+            'priority'      => 12,
         )
     );
     $wp_customize->add_control(
@@ -59,7 +59,7 @@ function theme_customize_register($wp_customize)
             'priority'      => 11,
             'label'         => __('Abilita risorse critiche', 'wptrek'),
             'description'   => __('Abilita l\'uso degli stili critici. Il file non è autogenerato ma fornito.', 'wptrek'),
-            'settings'      => 'critical_css_usage'
+            'settings'      => 'critical_css_usage',
         )
     );
 
@@ -68,7 +68,7 @@ function theme_customize_register($wp_customize)
         'theme_posts',
         array(
             'title'         => __('Articoli', 'wptrek'),
-            'priority'      => 210
+            'priority'      => 210,
         )
     );
 
@@ -79,7 +79,7 @@ function theme_customize_register($wp_customize)
             'title'         => 'Estratti articoli',
             'description'   => esc_html__('Impostazione sull\'aspetto degli estratti degli articoli', 'wptrek'),
             'priority'      => 11,
-            'panel'         => 'theme_posts'
+            'panel'         => 'theme_posts',
         )
     );
 
@@ -90,7 +90,7 @@ function theme_customize_register($wp_customize)
             'type'          => 'theme_mod',
             'capability'    => 'edit_theme_options',
             'transport'     => 'refresh',
-            'priority'      => 11
+            'priority'      => 11,
         )
     );
     $wp_customize->add_control(
@@ -101,161 +101,44 @@ function theme_customize_register($wp_customize)
             'priority'      => 11,
             'label'         => esc_html__('Lunghezza dell\'estratto.', 'wptrek'),
             'description'   => esc_html__('Fornisci il numero massimo di parole da visualizzare nell\'estratto degli articoli', 'wptrek'),
-            'settings'      => 'posts_excerpt_lenght'
+            'settings'      => 'posts_excerpt_lenght',
         )
     );
 
-    // Tipography
-    $wp_customize->add_panel(
-        'theme_typo',
+    // FontAwesome
+    $wp_customize->add_section(
+        'fontawesome',
         array(
-            'title'         => __('Tipografia', 'wptrek'),
-            'priority'      => 305
+            'title'         => 'Font Awesome',
+            'description'   => __('Load globally your FontAwesome PRO Kit', 'riefolo'),
+            'priority'      => 12,
+            'panel'         => 'riefolo_tools',
         )
     );
-
-    for ($h = 1; $h < 7; $h++) {
-
-        $wp_customize->add_section(
-            'theme_h' . $h . '_section',
-            array(
-                'title'         => esc_html('H' . $h),
-                'description'   => __('Imposta le i valori di default per i titoli H' . $h . '.', 'wptrek'),
-                'priority'      => 11,
-                'panel'         => 'theme_typo'
-            )
-        );
-        // --- desktop size
-        $wp_customize->add_setting(
-            'theme_h' . $h . '_size',
-            array(
-                'type'          => 'theme_mod',
-                'capability'    => 'edit_theme_options',
-                'transport'     => 'refresh',
-                'priority'      => 11
-            )
-        );
-        $wp_customize->add_control(
-            'theme_h' . $h . '_size_opt',
-            array(
-                'type'          => 'number',
-                'section'       => 'theme_h' . $h . '_section',
-                'priority'      => 11,
-                'label'         => esc_html__('desktop size', 'wptrek'),
-                'description'   => esc_html__('Dimensione titolo H' . $h . '.', 'wptrek'),
-                'settings'      => 'theme_h' . $h . '_size'
-            )
-        );
-        // --- smartphone size
-        $wp_customize->add_setting(
-            'theme_h' . $h . '_small_size',
-            array(
-                'type'          => 'theme_mod',
-                'capability'    => 'edit_theme_options',
-                'transport'     => 'refresh',
-                'priority'      => 11
-            )
-        );
-        $wp_customize->add_control(
-            'theme_h' . $h . '_small_size_opt',
-            array(
-                'type'          => 'number',
-                'section'       => 'theme_h' . $h . '_section',
-                'priority'      => 11,
-                'label'         => esc_html__('smartphone size', 'wptrek'),
-                'description'   => esc_html__('Dimensione titolo H' . $h . '.', 'wptrek'),
-                'settings'      => 'theme_h' . $h . '_small_size'
-            )
-        );
-        // --- desktop line-height
-        $wp_customize->add_setting(
-            'theme_h' . $h . '_lheight',
-            array(
-                'type'          => 'theme_mod',
-                'capability'    => 'edit_theme_options',
-                'transport'     => 'refresh',
-                'priority'      => 12
-            )
-        );
-        $wp_customize->add_control(
-            'theme_h' . $h . '_lheight_opt',
-            array(
-                'type'          => 'number',
-                'section'       => 'theme_h' . $h . '_section',
-                'priority'      => 12,
-                'label'         => esc_html__('desktop line-height', 'wptrek'),
-                'description'   => esc_html__('Interlinea titolo H' . $h . '.', 'wptrek'),
-                'settings'      => 'theme_h' . $h . '_lheight'
-            )
-        );
-        // --- smartphone line-height
-        $wp_customize->add_setting(
-            'theme_h' . $h . '_small_lheight',
-            array(
-                'type'          => 'theme_mod',
-                'capability'    => 'edit_theme_options',
-                'transport'     => 'refresh',
-                'priority'      => 12
-            )
-        );
-        $wp_customize->add_control(
-            'theme_h' . $h . '_small_lheight_opt',
-            array(
-                'type'          => 'number',
-                'section'       => 'theme_h' . $h . '_section',
-                'priority'      => 12,
-                'label'         => esc_html__('smartphone line-height', 'wptrek'),
-                'description'   => esc_html__('Interlinea titolo H' . $h . '.', 'wptrek'),
-                'settings'      => 'theme_h' . $h . '_small_lheight'
-            )
-        );
-        // --- top margin
-        $wp_customize->add_setting(
-            'theme_h' . $h . '_mtop',
-            array(
-                'type'          => 'theme_mod',
-                'capability'    => 'edit_theme_options',
-                'transport'     => 'refresh',
-                'priority'      => 13
-            )
-        );
-        $wp_customize->add_control(
-            'theme_h' . $h . '_mtop_opt',
-            array(
-                'type'          => 'number',
-                'section'       => 'theme_h' . $h . '_section',
-                'priority'      => 13,
-                'label'         => esc_html__('top margin', 'wptrek'),
-                'description'   => esc_html__('top margin per i titoli H' . $h . '.', 'wptrek'),
-                'settings'      => 'theme_h' . $h . '_mtop'
-            )
-        );
-        // --- bottom margin
-        $wp_customize->add_setting(
-            'theme_h' . $h . '_mbottom',
-            array(
-                'type'          => 'theme_mod',
-                'capability'    => 'edit_theme_options',
-                'transport'     => 'refresh',
-                'priority'      => 13
-            )
-        );
-        $wp_customize->add_control(
-            'theme_h' . $h . '_mbottom_opt',
-            array(
-                'type'          => 'number',
-                'section'       => 'theme_h' . $h . '_section',
-                'priority'      => 13,
-                'label'         => esc_html__('bottom margin', 'wptrek'),
-                'description'   => esc_html__('bottom margin per i titoli H' . $h . '.', 'wptrek'),
-                'settings'      => 'theme_h' . $h . '_mbottom'
-            )
-        );
-    }
+    $wp_customize->add_setting(
+        'get_fontawesome',
+        array(
+            'type'          => 'option',
+            'capability'    => 'edit_theme_options',
+            'transport'     => 'refresh',
+            'priority'      => 12,
+        )
+    );
+    $wp_customize->add_control(
+        'fontawesome_kit',
+        array(
+            'type'          => 'text',
+            'section'       => 'fontawesome',
+            'priority'      => 12,
+            'label'         => __( 'Kit code', 'riefolo' ),
+            'description'   => __( 'Add your kit code / name. You can manage your kits <a href="https://fontawesome.com/kits/" target="_blank">here</a>.', 'riefolo' ),
+            'settings'      => 'get_fontawesome',
+        )
+    );
 }
 add_action('customize_register', 'theme_customize_register');
 
-// This theme won't allow custom CSS
+//  You don't really need it
 function theme_remove_css_section($wp_customize)
 {
     $wp_customize->remove_section('custom_css');

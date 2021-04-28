@@ -2,14 +2,14 @@
 
 // Typography settings
 // --- paragraph and global content
-$content-font: 'Crimson Text', 'Times', 'Times New Roman' serif; 
+$content-font: 'Arial', 'Helvetica', sans-serif;
 $content-font-size: rem-calc(16);
 $content-bottom-space: calc(#{$content-font-size} / 1.2);
 $line-height: 1.5;
 $font-size-conversion: 16;
 
 // --- headings
-$heading-font: 'Lato', 'Arial', 'Helvetica', sans-serif;
+$heading-font: 'Times', 'Times New Roman' serif;
 $heading-font-weight: 400;
 $heading-scale: 4;
 $heading-base: 16;

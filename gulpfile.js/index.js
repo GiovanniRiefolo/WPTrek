@@ -147,74 +147,75 @@ gulp.task('watch', function () {
     // gulp.watch(SOURCE.dir.images.raw + "*.*", gulp.parallel('images'));
 });
 
-// Build Tasks
-gulp.task('build:main', function () {
+// Build Apart Tasks
+gulp.task('build:apart:main', function () {
     return gulp.src(SOURCE.dir.dev.main + '*.php')
         .pipe(gulp.dest(SOURCE.dir.build.main));
 });
-gulp.task('build:main:styles', function () {
+gulp.task('build:apart:main:styles', function () {
     return gulp.src(SOURCE.dir.dev.main + '*.css')
         .pipe(gulp.dest(SOURCE.dir.build.main));
 });
-gulp.task('build:main:others', function () {
+gulp.task('build:apart:main:others', function () {
     return gulp.src(SOURCE.dir.dev.main + '*.png')
         .pipe(gulp.dest(SOURCE.dir.build.main));
 });
-gulp.task('build:styles', function () {
+gulp.task('build:apart:styles', function () {
     return gulp.src(SOURCE.dir.dev.styles.main + '*.css')
         .pipe(gulp.dest(SOURCE.dir.build.assets.styles.main));
 });
-gulp.task('build:styles:admin', function () {
+gulp.task('build:apart:styles:admin', function () {
     return gulp.src(SOURCE.dir.dev.styles.admin + '*.css')
         .pipe(gulp.dest(SOURCE.dir.build.assets.styles.admin));
 });
-gulp.task('build:styles:templates', function () {
+gulp.task('build:apart:styles:templates', function () {
     return gulp.src(SOURCE.dir.dev.styles.templates + '*.css')
         .pipe(gulp.dest(SOURCE.dir.build.assets.styles.templates));
 });
-gulp.task('build:styles:editor', function () {
+gulp.task('build:apart:styles:editor', function () {
     return gulp.src(SOURCE.dir.dev.styles.editor + '*.css')
         .pipe(gulp.dest(SOURCE.dir.build.assets.styles.editor));
 });
-gulp.task('build:scripts', function () {
+gulp.task('build:apart:scripts', function () {
     return gulp.src(SOURCE.dir.dev.scripts + '*.js')
         .pipe(gulp.dest(SOURCE.dir.build.assets.scripts));
 });
-gulp.task('build:scripts:libraries', function () {
+gulp.task('build:apart:scripts:libraries', function () {
     return gulp.src(SOURCE.dir.js.libraries + '*.js')
         .pipe(gulp.dest(SOURCE.dir.build.assets.scripts));
 });
-gulp.task('build:fonts', function () {
+gulp.task('build:apart:fonts', function () {
     return gulp.src(SOURCE.dir.dev.fonts + '*/*')
         .pipe(gulp.dest(SOURCE.dir.build.assets.fonts));
 });
-gulp.task('build:fonts:icon', function () {
+gulp.task('build:apart:fonts:icon', function () {
     return gulp.src(SOURCE.dir.dev.iconfonts + '*/*')
         .pipe(gulp.dest(SOURCE.dir.build.assets.iconfonts));
 });
-gulp.task('build:images', function () {
+gulp.task('build:apart:images', function () {
     return gulp.src(SOURCE.dir.dev.images + '*/*')
         .pipe(gulp.dest(SOURCE.dir.build.assets.images));
 });
-
-gulp.task('build',
+// --- building theme in a external directory
+gulp.task('build:apart',
     gulp.series(
         gulp.parallel(
-            'build:main',
-            'build:main:styles',
-            'build:main:others',
-            'build:styles',
-            'build:styles:admin',
-            'build:styles:templates',
-            'build:styles:editor',
-            'build:scripts',
-            'build:scripts:libraries',
-            'build:fonts',
-            'build:iconfonts',
-            'build:images'
+            'build:apart:main',
+            'build:apart:main:styles',
+            'build:apart:main:others',
+            'build:apart:styles',
+            'build:apart:styles:admin',
+            'build:apart:styles:templates',
+            'build:apart:styles:editor',
+            'build:apart:scripts',
+            'build:apart:scripts:libraries',
+            'build:apart:fonts',
+            'build:apart:iconfonts',
+            'build:apart:images'
         )
     )
 );
+
 //  Default Task
 gulp.task('default',
     gulp.series(

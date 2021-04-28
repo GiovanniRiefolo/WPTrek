@@ -4,7 +4,7 @@
 
 // @package WordPress
 // @subpackage WP_Trek
-// @since WP Trek 1.0
+// @since WPTrek 1.0
 ?>
 
 <!doctype html>
@@ -36,59 +36,25 @@
 	<!-- WP Pingbacks -->
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
-	<?php
-	$critical_css_usage = get_theme_mod('critical_css_usage', true);
-	$critical_css_filename = get_theme_mod("critical_css_settings");
-	if ($critical_css_usage == true) : ?>
-		<!-- // Critical CSS -->
-		<style type="text/css">
-			<?php
-			// @https://stackoverflow.com/questions/11747639/how-to-use-file-get-contents-with-a-wordpress-users-cookies
-			$cookies = $_COOKIE;
-			$name;
-			$value;
-			foreach ($_COOKIE as $key => $cookie) {
-				if (strpos($key, 'wordpress_logged_in') !== FALSE) {
-					$name = $key;
-					$value = $cookie;
-				}
-			}
-			// Create a stream
-			$opts = array(
-				'http' => array(
-					'method' => "GET",
-					'header' => "Accept-language: en\r\n" .
-						"Cookie: {$key}={$cookie}; wordpress_css_cookie=WP Cookie check\r\n",
-				)
-			);
-			$context = stream_context_create($opts);
-			// Open the file using the HTTP headers set above + USE the PATH
-			if (empty($critical_css_filename)) {
-				echo file_get_contents(get_theme_file_uri() . '/assets/styles/theme.global.critical.css', false, $context);
-			} else if ($critical_css_filename) {
-				echo file_get_contents(get_theme_file_uri() . '/assets/styles/' . $critical_css_filename, false, $context);
-			}
-			?>
-		</style>
-	<?php else : ?>
-		<?php wp_enqueue_style('critical-theme-style', get_theme_file_uri('assets/styles/theme.global.critical.css')); ?>
-	<?php endif; ?>
+    <?php
+    $critical_css_usage = get_theme_mod('critical_css_usage', true);
+    $critical_css_filename = get_theme_mod("critical_css_settings");
+    if ($critical_css_usage == true) : ?>
+        <!-- // Critical CSS -->
+        <style type="text/css">
+            <?php
+                if (empty($critical_css_filename)) {
+                    echo file_get_contents(get_template_directory() . '/assets/styles/theme.global.critical.css', false, $context);
+                } elseif ($critical_css_filename) {
+                    echo file_get_contents(get_template_directory() . '/assets/styles/' . $critical_css_filename, false, $context);
+                }
+                  ?>
+        </style>
+    <?php else : ?>
+        <?php wp_enqueue_style('critical-theme-style', get_template_directory('assets/styles/theme.global.critical.css')); ?>
+    <?php endif; ?>
 
 	<?php wp_head(); ?>
-
-	<?php wptrek_get_gtag(); ?>
-
-	<?php wptrek_get_fbpx(); ?>
-
-	<?php
-	$critical_css_usage = get_theme_mod('critical_css_usage', true);
-	$critical_css_filename = get_theme_mod("critical_css_settings");
-
-	if ($critical_css_usage == true) : ?>
-		<style>
-			<?php echo file_get_contents(get_template_directory_uri() . '/assets/styles/' . $critical_css_filename); ?>
-		</style>
-	<?php endif; ?>
 
 </head>
 

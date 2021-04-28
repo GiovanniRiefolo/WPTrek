@@ -1,5 +1,5 @@
 <?php 
-//  WP Trek uses wp_nav_menu() in two locations.
+//  WPTrek uses wp_nav_menu() in two locations.
         register_nav_menus(
             array(
                 'main' => __( 'Main Menu', 'wptrek' ),

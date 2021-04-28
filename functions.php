@@ -1,9 +1,9 @@
 <?php
-//  WP Trek functions and definitions
+//  WPTrek functions and definitions
 //  @link https://developer.wordpress.org/themes/basics/theme-functions/
 
 //  Theme Compatibility
-//  WP Trek only works in WordPress 5.5 or later.
+//  WPTrek only works in WordPress 5.5 or later.
 if ( version_compare( $GLOBALS['wp_version'], '5.5', '<' ) ) {
  	require get_template_directory() . '/includes/functions/compatibility.php';
  	return;
@@ -14,7 +14,7 @@ if ( ! function_exists( 'wptrek_setup' ) ) :
 
     function wptrek_setup() {
 
-        //  WP Trek can be translated: thank you Lt. Uhura!
+        //  WPTrek can be translated: thank you Lt. Uhura!
         load_theme_textdomain( 'wptrek', get_template_directory() . '/languages' );
 
         //  Add default posts and comments RSS feed links to head.

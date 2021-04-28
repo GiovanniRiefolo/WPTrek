@@ -1,7 +1,7 @@
 # Security Policy
 
 ## Supported Versions
-WP Trek is currently in the development stage, thus there are no guarantees that security issues will be resolved immediately. This table will be updated as soon as the RC will become public.
+WPTrek is currently in the development stage, thus there are no guarantees that security issues will be resolved immediately. This table will be updated as soon as the RC will become public.
 
 | Version | Supported          |
 | ------- | ------------------ |

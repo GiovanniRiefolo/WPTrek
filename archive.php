@@ -4,6 +4,6 @@
 
 // @package WordPress
 // @subpackage WP_Trek
-// @since WP Trek 1.0
+// @since WPTrek 1.0
 
 get_header(); ?>

@@ -2,11 +2,11 @@
 
 // Enabling CSS Frameworks -if needed - and importing assets
 @import "../framework/theme.framework";
-// Importing WP Trek utilities
+// Importing WPTrek utilities
 @import "../utilities/theme.calc";
 @import "../utilities/theme.colors";
-// Importing WP Trek typography options
+// Importing WPTrek typography options
 @import "../typography/theme.typo";
-// Importing WP Trek custom viewports - check _theme.responsive.scss for usage
+// Importing WPTrek custom viewports - check _theme.responsive.scss for usage
 @import "theme.viewports";
 
