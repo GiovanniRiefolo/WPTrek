@@ -1,5 +1,5 @@
 {
-  "name": "wptrek",
+  "name": "giovanniriefolo/wptrek",
   "type": "wordpress-theme",
   "description": "The unconventional WordPress starter theme for non-of-this-earth projects.",
   "keywords": [
@@ -7,10 +7,9 @@
   "homepage": "https://github.com/GiovanniRiefolo/WPTrek",
   "license": "GNU-GPL-v3.0",
   "authors": [{
-    "name": "Giovanni Riefolo",
-    "homepage": "https://riefolo.dev"
-    }
-  ],
+      "name": "Giovanni Riefolo",
+      "homepage": "https://riefolo.dev"
+    }],
   "require": {
     "php": ">=5.6"
   },
