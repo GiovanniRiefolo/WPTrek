@@ -12,8 +12,10 @@ WPTrek is also the most agnostic but complete starter theme out there.
 2. [Getting started](#getting-started)   
 3. [How it works](#how-it-works)
    1. [Early edits](#early-edits)
+   2. [Choose a CSS Framework](#choose-a-css-framework)
+   2. [Functions.php](#)
    2. [Test development](#) 
-   3. [Build production](#) 
+   3. [Production build](#) 
 4. [Features](#features)
 
 ---
@@ -39,6 +41,71 @@ Once you did it, WPTrek should be installed and fully running on your local mach
 
 ---
 
+## Theme Structure
+``` markdown
+root
+|---- assets                           // styles, scripts, images
+|    |---- fonts                       // font proprietari o di terze parti
+|    |    |---- fa5pro                 // assets di FontAwesome 5 Pro
+|    |    |---- slick                  // assets di slick.js
+|    |---- images                      // images
+|    |    |---- pre                    // images
+|    |---- scripts                     // scripts
+|    |    |---- libraires              // vendors scripts
+|    |    |---- theme.js               // global theme scripts
+|    |    |---- vendor.js              // bundle of all scripts inside libraries direcotry
+|    |---- styles                      // tutti gli stili del tema (esclusi i blocchi)
+|    |    |---- _scss                  // All SCSS files
+|    |    |---- admin                  // Styles to be enqueued/registered in WP admin
+|    |    |---- editor                 // Default WordPress stlyes  
+|    |    |---- framework              // CSS Framework directory
+|    |    |---- settings               // Style theme settings
+|    |    |---- templates              // Templates dedicated styles
+|    |    |---- tipography             // Tipography styling
+|    |    |---- utilities              // Styling utilities
+|    |    |    |---- normalize.scss    // tutti gli stili dedicati a specifici parziali
+|    |    |    |---- _theme.colors.sss // tutti gli stili dedicati a specifici parziali
+|---- gulpfiles.js                     // Gulp configuration directory
+|    |---- index.js                    // main gulp file
+|    |---- paths.json                  // file and directory paths
+|    |---- google-font.list            // list file for Google Fonts import
+|---- includes                         // customizer, function partials, walker menu partials directory
+|    |---- customizer                  // customizer directory
+|    |    |---- customizer.php         // customizer file
+|    |---- functions                   // partials imported in functions.php
+|    |    |---- assets.php
+|    |    |---- blocks.php
+|    |    |---- color-palette.php
+|    |    |---- compatibility.php
+|    |    |---- custom-fields.php
+|    |    |---- extra.php
+|    |    |---- image-sizes.php
+|    |    |---- navigation-menus.php
+|    |    |---- template-tags.php
+|    |    |---- widgets.php
+|    |---- walker                   // walker menu partials
+|---- partials                      // template partials
+|    |---- header                   // header main partials
+|    |---- page                     // page partials
+|    |---- post                     // post partials
+|---- templates                     // template custom
+|---- woocommerce                   // templates di woocommerce
+|---- .gitignore                    // ignoring files and directory with Git
+|---- style.css                     // default style.css file for WordPress                   
+|---- screenshot.png                // default theme preview file for WordPress
+|---- package.json                  // Gulp packages list                
+|---- 404.php                       // 404 default template                     
+|---- archive.php                   // archive default template                 
+|---- footer.php                    // footer default template                  
+|---- front-page.php                // static front page default template              
+|---- functions.php                 // default theme functions file               
+|---- header.php                    // header default template                  
+|---- home.php                      // home for post default template                   
+|---- index.php                     // default index.php template
+|---- page.php                      // default page template
+|---- search.php                    // default search template
+|---- searchform.php                // default search form template
+```
 
 ## How it works
 ### Early Edits
@@ -54,7 +121,7 @@ Open+Sans:400,600
 Lato:300,300i,900
 ```
 #### :three: Set a textdomain
-Text domain will be used everywhere for i18n purpose. Just edit ` ` to get all complete.  
+Text domain will be used everywhere for i18n purpose. Just edit ` ` to get all complete.
 
 ### Choose a CSS Framework
 WPTrek helps you import the framework you want and automatically loads it. You can also decide to go ahead without any CSS framework, of course. 
@@ -107,4 +174,9 @@ The Customizer will give you useful tools for your project. Let's see what WPTre
 ## Tools
 ### A11y
 - [WordPress specifications](https://developer.wordpress.org/themes/functionality/accessibility/)
-- 
+
+## Plugins
+### Gutenberg
+- [CoBlocks](https://wordpress.org/plugins/coblocks/)
+### Features
+- [ACF - Advanced Custom Fields](https://www.advancedcustomfields.com/)

@@ -35,9 +35,6 @@ php:
 
 jobs:
   fast_finish: true
-  include:
-    - php: 7.4
-      env: SNIFF=1
 
 before_install:
   # Speed up build time by disabling Xdebug.
