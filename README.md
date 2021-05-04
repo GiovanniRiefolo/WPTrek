@@ -17,7 +17,8 @@ WPTrek is also the most agnostic but complete starter theme out there.
    2. [Functions.php](#)
    2. [Test development](#) 
    3. [Production build](#) 
-4. [Features](#features)
+4. [Tools](#tools)
+5. [Plugins](#plugins)
 
 ---
 
@@ -38,13 +39,11 @@ $ npm install
 
 Once you did it, WPTrek should be installed and fully running on your local machine. If you prefer you can manually teleport WPTrek files to your project folder. Be sure you, or Scotty, to run `npm install` once files are 100% moved into the theme folder.
 
-![](https://media1.tenor.com/images/e5acbf1cf1c0ad287cdca3251c384a9f/tenor.gif?itemid=11313969)
-
 ---
 
 ## Theme Structure
 ``` markdown
-root
+JMaroot
 |---- assets                           ⟶ styles, scripts, images and fonts folder
 |    |---- fonts                       ⟶ Custom fonts and/or Downloaded Google Fonts
 |    |---- images                      ⟶ optimized images directory
@@ -175,5 +174,3 @@ The Customizer will give you useful tools for your project. Let's see what WPTre
 ## Plugins
 ### Gutenberg
 - [CoBlocks](https://wordpress.org/plugins/coblocks/)
-### Features
-- [ACF - Advanced Custom Fields](https://www.advancedcustomfields.com/)
