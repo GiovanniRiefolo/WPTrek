@@ -74,13 +74,20 @@ if ( ! function_exists( 'wptrek_setup' ) ) :
         add_theme_support( 'custom-line-height' );
 
         // --- add support for custom units
-        add_theme_support( 'custom-units', 'rem', 'em' );
+        add_theme_support( 'custom-units', 'rem', 'em', 'vh', 'vw', 'ch' );
 
         // --- add support for spacing control
         add_theme_support( 'custom-spacing');
         
         // --- add support for link color control (experimental)
-        add_theme_support('experimental-link-color');
+        //add_theme_support('experimental-link-color');
+
+        // --- disable custom colors
+        //add_theme_support( 'disable-custom-colors' );
+
+        // --- Disable custom font sizes
+        //add_theme_support('disable-custom-font-sizes');
+
     }
 
     endif;

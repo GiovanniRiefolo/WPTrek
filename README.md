@@ -1,6 +1,7 @@
 ![WPTrek License: GNU GPL v3.0](https://img.shields.io/github/license/GiovanniRiefolo/WPTrek)
-![WPTrek Current version](https://img.shields.io/github/package-json/v/GiovanniRiefolo/WPTrek)
+![WPTrek Current version](https://img.shields.io/github/v/release/GiovanniRiefolo/WPTrek)
 ![WPTrek Total release downloads](https://img.shields.io/github/downloads/GiovanniRiefolo/WPTrek/total)
+![WPTrek Travis build](https://img.shields.io/travis/com/GiovanniRiefolo/WPTrek)
 
 # WPTrek Guide
 WPTrek is an **unconventional theme** for your **unconventional projects**. What does it mean? Usually, a theme has a lot of boundaries in terms of functionality, **binding your needs to the theme's limit**. When you are looking for extreme flexibility without ties, here it comes WPTrek.
@@ -44,67 +45,63 @@ Once you did it, WPTrek should be installed and fully running on your local mach
 ## Theme Structure
 ``` markdown
 root
-|---- assets                           // styles, scripts, images
-|    |---- fonts                       // font proprietari o di terze parti
-|    |    |---- fa5pro                 // assets di FontAwesome 5 Pro
-|    |    |---- slick                  // assets di slick.js
-|    |---- images                      // images
-|    |    |---- pre                    // images
-|    |---- scripts                     // scripts
-|    |    |---- libraires              // vendors scripts
-|    |    |---- theme.js               // global theme scripts
-|    |    |---- vendor.js              // bundle of all scripts inside libraries direcotry
-|    |---- styles                      // tutti gli stili del tema (esclusi i blocchi)
-|    |    |---- _scss                  // All SCSS files
-|    |    |---- admin                  // Styles to be enqueued/registered in WP admin
-|    |    |---- editor                 // Default WordPress stlyes  
-|    |    |---- framework              // CSS Framework directory
-|    |    |---- settings               // Style theme settings
-|    |    |---- templates              // Templates dedicated styles
-|    |    |---- tipography             // Tipography styling
-|    |    |---- utilities              // Styling utilities
-|    |    |    |---- normalize.scss    // tutti gli stili dedicati a specifici parziali
-|    |    |    |---- _theme.colors.sss // tutti gli stili dedicati a specifici parziali
-|---- gulpfiles.js                     // Gulp configuration directory
-|    |---- index.js                    // main gulp file
-|    |---- paths.json                  // file and directory paths
-|    |---- google-font.list            // list file for Google Fonts import
-|---- includes                         // customizer, function partials, walker menu partials directory
-|    |---- customizer                  // customizer directory
-|    |    |---- customizer.php         // customizer file
-|    |---- functions                   // partials imported in functions.php
-|    |    |---- assets.php
-|    |    |---- blocks.php
-|    |    |---- color-palette.php
-|    |    |---- compatibility.php
-|    |    |---- custom-fields.php
-|    |    |---- extra.php
-|    |    |---- image-sizes.php
-|    |    |---- navigation-menus.php
-|    |    |---- template-tags.php
-|    |    |---- widgets.php
-|    |---- walker                   // walker menu partials
-|---- partials                      // template partials
-|    |---- header                   // header main partials
-|    |---- page                     // page partials
-|    |---- post                     // post partials
-|---- templates                     // template custom
-|---- woocommerce                   // templates di woocommerce
-|---- .gitignore                    // ignoring files and directory with Git
-|---- style.css                     // default style.css file for WordPress                   
-|---- screenshot.png                // default theme preview file for WordPress
-|---- package.json                  // Gulp packages list                
-|---- 404.php                       // 404 default template                     
-|---- archive.php                   // archive default template                 
-|---- footer.php                    // footer default template                  
-|---- front-page.php                // static front page default template              
-|---- functions.php                 // default theme functions file               
-|---- header.php                    // header default template                  
-|---- home.php                      // home for post default template                   
-|---- index.php                     // default index.php template
-|---- page.php                      // default page template
-|---- search.php                    // default search template
-|---- searchform.php                // default search form template
+|---- assets                           ⟶ styles, scripts, images and fonts folder
+|    |---- fonts                       ⟶ Custom fonts and/or Downloaded Google Fonts
+|    |---- images                      ⟶ optimized images directory
+|    |    |---- pre                    ⟶ images that needs optimization
+|    |---- scripts                     ⟶ scripts directory
+|    |    |---- libraires              ⟶ vendors scripts directory
+|    |    |---- theme.js               ⟶ global theme scripts
+|    |    |---- vendor.js              ⟶ bundle of all scripts inside libraries directory
+|    |---- styles                      ⟶ theme styles directory
+|    |    |---- _scss                  ⟶ all SCSS files
+|    |    |---- admin                  ⟶ styles to be enqueued/registered in WP admin
+|    |    |---- editor                 ⟶ default WordPress stlyes  
+|    |    |---- framework              ⟶ CSS Framework directory
+|    |    |---- settings               ⟶ Style theme settings
+|    |    |---- templates              ⟶ templates dedicated styles
+|    |    |---- tipography             ⟶ Tipography styling
+|    |    |---- utilities              ⟶ styling utilities
+|    |    |    |---- normalize.scss    ⟶ styles reset
+|    |    |    |---- _theme.colors.sss ⟶ theme colors
+|---- gulpfiles.js                     ⟶ Gulp configuration directory
+|    |---- index.js                    ⟶ main gulp file
+|    |---- paths.json                  ⟶ file and directory paths
+|    |---- google-font.list            ⟶ list file for Google Fonts import
+|---- includes                         ⟶ customizer, function partials, walker menu partials directory
+|    |---- customizer                  ⟶ customizer directory
+|    |    |---- customizer.php         ⟶ customizer file
+|    |---- functions                   ⟶ partials imported in functions.php
+|    |    |---- assets.php             ⟶ importing all styles and scripts for WordPress
+|    |    |---- color-palette.php      ⟶ custom theme color palette
+|    |    |---- compatibility.php      ⟶ prevent WPTrek enabling in older version of WordPress
+|    |    |---- extra.php              ⟶ extra configurations
+|    |    |---- image-sizes.php        ⟶ defining custom image size
+|    |    |---- navigation-menus.php   ⟶ defining custom navigation menu
+|    |    |---- template-tags.php      ⟶ defining custom template-tags
+|    |    |---- widgets.php            ⟶ defining custom widget
+|    |---- walker                      ⟶ walker menu partials
+|---- partials                         ⟶ template partials
+|    |---- header                      ⟶ header main partials
+|    |---- page                        ⟶ page partials
+|    |---- post                        ⟶ post partials
+|---- templates                        ⟶ template custom
+|---- woocommerce                      ⟶ templates di woocommerce
+|---- .gitignore                       ⟶ ignoring files and directory with Git
+|---- style.css                        ⟶ default style.css file for WordPress                   
+|---- screenshot.png                   ⟶ default theme preview file for WordPress
+|---- package.json                     ⟶ Gulp packages list                
+|---- 404.php                          ⟶ 404 default template                     
+|---- archive.php                      ⟶ archive default template                 
+|---- footer.php                       ⟶ footer default template                  
+|---- front-page.php                   ⟶ static front page default template              
+|---- functions.php                    ⟶ default theme functions file               
+|---- header.php                       ⟶ header default template                  
+|---- home.php                         ⟶ home for post default template                   
+|---- index.php                        ⟶ default index.php template
+|---- page.php                         ⟶ default page template
+|---- search.php                       ⟶ default search template
+|---- searchform.php                   ⟶ default search form template
 ```
 
 ## How it works
