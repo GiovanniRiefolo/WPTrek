@@ -103,9 +103,6 @@ require_once get_template_directory() . '/includes/functions/template-tags.php';
 // Color palette
 require_once get_template_directory() . '/includes/functions/color-palette.php';
 
-// Custom fields setup
-require_once get_template_directory() . '/includes/functions/custom-fields.php';
-
 // Extra features
 require_once get_template_directory() . '/includes/functions/extra.php';
 

@@ -4,7 +4,11 @@
   "author": "Giovanni Riefolo <giovanni@riefolo.dev> (https://riefolo.dev)",
   "description": "The unconventional WordPress starter theme for non-of-this-earth projects.",
   "license": "GNU GPL v3.0",
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "private": true,
   "repository": {
     "type": "git",
@@ -15,10 +19,10 @@
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
-    "cssnano": "^4.1.10",
+    "cssnano": "^4.1.11",
     "foundation-sites": "^6.6.3",
     "gulp": "^4.0.2",
-    "gulp-babel": "8.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-google-webfonts": "^4.0.0",
     "gulp-imagemin": "^7.1.0",
@@ -28,9 +32,10 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
+    "node-forge": "^0.10.0",
     "precss": "^4.0.0",
-    "tailwindcss": "^2.0.3"
+    "tailwindcss": "^2.0.4"
   },
   "devDependencies": {
     "browser-sync": "^2.26.14",
