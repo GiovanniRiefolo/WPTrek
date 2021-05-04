@@ -45,9 +45,10 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "install:gfonts": "gulp fonts",
+    "gfonts": "gulp fonts",
     "engage": "gulp watch",
     "engage:browser": "gulp browsersync",
-    "take-us-out": "gulp build:apart"
+    "take-us-out": "gulp build",
+    "take-us-out:clean": "gulp build:clean"
   }
 }

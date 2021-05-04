@@ -12,11 +12,13 @@ WPTrek is also the most agnostic but complete starter theme out there.
 1. [Requirements](#requirements)
 2. [Getting started](#getting-started)   
 3. [How it works](#how-it-works)
-   1. [Early edits](#early-edits)
-   2. [Choose a CSS Framework](#choose-a-css-framework)
-   2. [Functions.php](#)
-   2. [Test development](#) 
-   3. [Production build](#) 
+   * [Early edits](#early-edits)
+   * [Choose a CSS Framework](#choose-a-css-framework)
+   * [Functions.php](#)
+   * [Working with styles](#)
+   * [Test development](#) 
+   * [Production build](#)
+4. [CLI Commands](#)
 4. [Tools](#tools)
 5. [Plugins](#plugins)
 
@@ -107,16 +109,16 @@ JMaroot
 ### Early Edits
 Before start boldly development of your next WordPress theme, you need to setup three things.
 
-#### :one: BrowserSync setup
+#### :one: BrowserSync setup
 Before starting theme development update `gulpfile.js/index.js:22` with your local development URL. 
 
-#### :two: Google Fonts
+#### :two: Google Fonts
 WPTrek will import your preferred Google Fonts. Just give him the download list by editing `gulpfile.js/google.fonts.list` file like this: 
 ```
 Open+Sans:400,600
 Lato:300,300i,900
 ```
-#### :three: Set a textdomain
+#### :three: Set a textdomain
 Text domain will be used everywhere for i18n purpose. Just edit ` ` to get all complete.
 
 ### Choose a CSS Framework
@@ -151,6 +153,11 @@ will import the latest version of [ZURB Foundation](https://get.foundation/). Yo
 @include foundation-visibility-classes;
 ```
 
+### Functions.php
+
+### Working with styles
+ 
+
 ---
 
 ## Features
@@ -166,10 +173,21 @@ The Customizer will give you useful tools for your project. Let's see what WPTre
 
 
 ---
+## CLI Commands
+WPTrek has some custom CLI commands, made for your development needs:
+- `npm run gfonts` install gfonts.
+- `npm run engage` start watching file to compile.
+- `npm run engage:watch` start watching file to compile with BrowserSync support.
+- `npm run take-us-out` build a clean copy of your theme inside WPTrek directory.
+- `npm run take-us-out:clean`build a clean copy of your theme outside WPTrek directory. 
+
+---
 
 ## Tools
 ### A11y
 - [WordPress specifications](https://developer.wordpress.org/themes/functionality/accessibility/)
+
+---
 
 ## Plugins
 ### Gutenberg
